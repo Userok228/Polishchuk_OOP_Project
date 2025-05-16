@@ -1,0 +1,20 @@
+﻿<Window x:Class="Jora.CreationProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jora"
+        mc:Ignorable="d"
+        Title="CreationProjectWindow" Height="800" Width="600">
+    <Grid Width="600" Height="800">
+        <TextBox x:Name="txtbx_Name" HorizontalAlignment="Center" Margin="0,63,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Enter a project name" HorizontalAlignment="Center" Height="36" Margin="0,22,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
+        <TextBox x:Name="txtbx_Description" HorizontalAlignment="Center" Margin="0,200,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Enter a project description" HorizontalAlignment="Center" Height="36" Margin="0,160,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
+        <TextBox x:Name="txtbx_Deadline" HorizontalAlignment="Center" Margin="0,337,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Enter a project deadline" HorizontalAlignment="Center" Height="36" Margin="0,297,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
+        <Button x:Name="btn_Done" Content="Done" HorizontalAlignment="Center" Height="70" Margin="0,666,0,0" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" FontSize="24" FontFamily="Arial" FontWeight="Bold" Click="btn_Done_Click"/>
+        <TextBlock x:Name="txtblk_FormatErrors" TextAlignment="Center" HorizontalAlignment="Center" Height="113" Margin="0,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial" FontWeight="Bold" Foreground="#FF9C0000"/>
+
+    </Grid>
+</Window>

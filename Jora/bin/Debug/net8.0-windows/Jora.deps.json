@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Jora/1.0.0": {
+        "dependencies": {
+          "JoraClassLibrary": "1.0.0"
+        },
+        "runtime": {
+          "Jora.dll": {}
+        }
+      },
+      "JoraClassLibrary/1.0.0": {
+        "runtime": {
+          "JoraClassLibrary.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Jora/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "JoraClassLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,22 @@
+﻿<Page x:Class="Jora.ProjectTeamPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Jora"
+      mc:Ignorable="d" 
+      d:DesignHeight="882" d:DesignWidth="1442"
+      Title="ProjectTeamPage" Width="1440" Height="874">
+
+    <Grid Background="White">
+        <Button x:Name="btn_Summary" HorizontalContentAlignment="Left" Content="Summary" HorizontalAlignment="Left" Height="34" Margin="37,37,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="btn_Summary_Click"/>
+        <Button x:Name="btn_Board" HorizontalContentAlignment="Left" Content="Board" HorizontalAlignment="Left" Height="34" Margin="37,103,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="btn_Board_Click"/>
+        <Button x:Name="btn_Chat" HorizontalContentAlignment="Left" Content="Chat" HorizontalAlignment="Left" Height="34" Margin="38,175,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="btn_Chat_Click"/>
+        <Button x:Name="btn_Team" HorizontalContentAlignment="Left" Content="Team" HorizontalAlignment="Left" Height="34" Margin="38,244,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="38,224,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,155,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,86,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
+        <Rectangle HorizontalAlignment="Left" Height="874" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FFCBF1FF"/>
+
+    </Grid>
+</Page>
