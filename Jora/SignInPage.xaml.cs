@@ -28,8 +28,22 @@ namespace Jora
 
         private void btn_Done_Click(object sender, RoutedEventArgs e)
         {
+           
+            if (StorageUsers.Instance.CreationNewUser(txtbx_Login.Text, psswrdbx_Password.Password, psswrdbx_RepeatPassword.Password, txtbx_Username.Text, txtbx_Email.Text))
+            {
+                MessageBox.Show("New user successfully created");
+                NavigationService.Navigate(new LogInPage());
+            }
+            else
+            {
+                MessageBox.Show("A user with this login already exists or the user data was entered incorrectly.", "Error", MessageBoxButton.OK);
+            }
 
         }
 
+        private void btn_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new LogInPage());
+        }
     }
 }

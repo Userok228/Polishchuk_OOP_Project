@@ -9,12 +9,12 @@
     <Grid Width="600" Height="800">
         <TextBox x:Name="txtbx_Name" HorizontalAlignment="Center" Margin="0,63,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Enter a project name" HorizontalAlignment="Center" Height="36" Margin="0,22,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
-        <TextBox x:Name="txtbx_Description" HorizontalAlignment="Center" Margin="0,200,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Enter a project description" HorizontalAlignment="Center" Height="36" Margin="0,160,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
-        <TextBox x:Name="txtbx_Deadline" HorizontalAlignment="Center" Margin="0,337,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
-        <Label Content="Enter a project deadline" HorizontalAlignment="Center" Height="36" Margin="0,297,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
-        <Button x:Name="btn_Done" Content="Done" HorizontalAlignment="Center" Height="70" Margin="0,666,0,0" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" FontSize="24" FontFamily="Arial" FontWeight="Bold" Click="btn_Done_Click"/>
-        <TextBlock x:Name="txtblk_FormatErrors" TextAlignment="Center" HorizontalAlignment="Center" Height="113" Margin="0,430,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial" FontWeight="Bold" Foreground="#FF9C0000"/>
+        <TextBox x:Name="txtbx_Description" HorizontalAlignment="Center" Margin="0,230,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Enter a project description" HorizontalAlignment="Center" Height="36" Margin="0,190,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
+        <TextBox x:Name="txtbx_Deadline" HorizontalAlignment="Center" Margin="0,404,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="#FFDEDEDE" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
+        <Label Content="Enter a project deadline" HorizontalAlignment="Center" Height="36" Margin="0,364,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial"/>
+        <Button x:Name="btn_Done" Content="Done" HorizontalAlignment="Center" Height="70" Margin="0,666,0,0" VerticalAlignment="Top" Width="544" Background="#FFCBF1FF" FontSize="24" FontFamily="Arial" FontWeight="Bold" Click="btn_Done_Click"/>
+        <TextBlock x:Name="txtblk_FormatErrors" TextAlignment="Center" HorizontalAlignment="Center" Height="113" Margin="0,519,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" FontSize="24" FontFamily="Arial" FontWeight="Bold" Foreground="#FF9C0000"/>
 
     </Grid>
 </Window>

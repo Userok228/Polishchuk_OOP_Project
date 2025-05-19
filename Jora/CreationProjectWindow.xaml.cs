@@ -11,7 +11,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JoraClassLibrary;
 
 namespace Jora
 {
@@ -32,13 +34,11 @@ namespace Jora
                 txtblk_FormatErrors.Text = "The name length must be greater than 0 and less than 40 characters.";
                 return;
             }
-            if (txtbx_Description.Text.Length > 200)
+            if (txtbx_Description.Text.Length > 1200)
             {
                 txtblk_FormatErrors.Text = "The description length must be less than 200 characters.";
                 return;
             }
-            if (txtbx_Deadline != null)
-            {
                 string deadline = txtbx_Deadline.Text;
                 DateTime dead;
                 if (DateTime.TryParseExact(deadline, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dead))
@@ -54,12 +54,13 @@ namespace Jora
                     txtblk_FormatErrors.Text = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
                     return;
                 }
-            }
-            
-            //сохранение нового в джейсон. После чего, в зависимоти от количества обїектов меняется расположение кнопки создания проекта, и перезагружается страница выбора проектов. 
+              if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, dead, CurrentUser.Instance.currentUser.login))
+              {   
+                  txtblk_FormatErrors.Text = "Thomething went erong :/";
+                  return;
+              }
             Close();
         }
-
-       
     }
 }
+

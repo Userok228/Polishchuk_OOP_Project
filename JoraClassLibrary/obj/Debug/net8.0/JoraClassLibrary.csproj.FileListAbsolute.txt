@@ -1,0 +1,12 @@
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\bin\Debug\net8.0\JoraClassLibrary.deps.json
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\bin\Debug\net8.0\JoraClassLibrary.dll
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\bin\Debug\net8.0\JoraClassLibrary.pdb
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.AssemblyInfoInputs.cache
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.AssemblyInfo.cs
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.dll
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\refint\JoraClassLibrary.dll
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.pdb
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\ref\JoraClassLibrary.dll
+C:\Users\makro\source\repos2\OOP\Jora\JoraClassLibrary\obj\Debug\net8.0\JoraClassLibrary.sourcelink.json

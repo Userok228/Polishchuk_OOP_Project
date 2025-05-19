@@ -34,8 +34,11 @@ namespace Jora
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists())
-            NavigationService.Navigate(new ProjectSelectionPage_AllProjects());
+            if (StorageUsers.Instance.LogIn(txtbx_Login.Text, psswrdbx_Password.Password))
+            {
+                NavigationService.Navigate(new ProjectSelectionPage_AllProjects());
+            }
+            else MessageBox.Show("Login or password was entered incorrectly", "The specified user was not found", MessageBoxButton.OK);
         }
     }
 }

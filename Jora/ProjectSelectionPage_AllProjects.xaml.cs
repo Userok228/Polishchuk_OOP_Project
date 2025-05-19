@@ -1,5 +1,9 @@
-﻿using System;
+﻿using JoraClassLibrary;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,35 +26,40 @@ namespace Jora
     {
         public static CreationProjectWindow creationwindow;
 
+        public ObservableCollection <string> ProjectNames { get; set; }
         public ProjectSelectionPage_AllProjects()
-        {
+        {    
             InitializeComponent();
+            ProjectNames = new ObservableCollection<string>(StorageUsers.Instance.GetExistingUserProjects());
+            DataContext = this;
         }
-
-        private void btn_NewProject_Click(object sender, RoutedEventArgs e)
+        private void btn_Projects_Click(object sender, RoutedEventArgs e)
         {
-            if (creationwindow == null)
-            {
-                creationwindow = new CreationProjectWindow();
-                creationwindow.Show();
-            }
-            else creationwindow.Activate();
-         
-        }
+            var button = sender as System.Windows.Controls.Button;
+            string projectName = button?.Content.ToString();
 
-        private void btn_Project1_Click(object sender, RoutedEventArgs e)
-        {
             NavigationService.Navigate(new ProjectPage());
         }
+
 
         private void btn_CreateNewProject_Click(object sender, RoutedEventArgs e)
         {
             if (creationwindow == null)
-            {
-                creationwindow = new CreationProjectWindow();
+             {
+                 creationwindow = new CreationProjectWindow();
+                creationwindow.Closed += (s, args) =>
+                {
+                    NavigationService.Navigate(new ProjectSelectionPage_AllProjects());
+                    creationwindow = null;
+                };
                 creationwindow.Show();
-            }
-            else creationwindow.Activate();
+             }
+             else creationwindow.Activate();
+        }
+        private void btn_YourProjects_Click(object sender, RoutedEventArgs e)
+        {
+            ProjectNames = new ObservableCollection<string>(StorageUsers.Instance.GetCurrentUsersProjects());
+            DataContext = this;
         }
     }
 }

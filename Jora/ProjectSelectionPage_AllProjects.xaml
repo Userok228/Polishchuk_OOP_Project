@@ -14,11 +14,9 @@
         <Rectangle HorizontalAlignment="Left" Height="874" Margin="0,150,0,0" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FFCBF1FF"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="38,227,0,0" VerticalAlignment="Top" Width="223"/>
         <Button x:Name="btn_AllProjects" Content="All projects" HorizontalContentAlignment="Left"  HorizontalAlignment="Left" Height="47" Margin="38,175,0,0" VerticalAlignment="Top" Width="223" FontSize="24" FontWeight="Bold" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"/>
-        <Button x:Name="btn_YourProjects" Content="Your projects" HorizontalContentAlignment="Left"  HorizontalAlignment="Left" Height="47" Margin="38,242,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.527,1.064"/>
+        <Button x:Name="btn_YourProjects" Content="Your projects" HorizontalContentAlignment="Left"  HorizontalAlignment="Left" Height="47" Margin="38,242,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.527,1.064" Click="btn_YourProjects_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="38,305,0,0" VerticalAlignment="Top" Width="223"/>
         <Button x:Name="btn_OtherPeoplesProjects" Content="Other people`s &#xD;&#xA;projects" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="61" Margin="38,332,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.527,1.064"/>
-        <Button x:Name="btn_NewProject" Content="Add project" HorizontalAlignment="Left" Height="170" Margin="760,200,0,0" VerticalAlignment="Top" Width="240" FontSize="24" FontFamily="Arial" Background="#FFF0F0F0" Opacity="0.7" BorderBrush="Black" Click="btn_NewProject_Click"/>
-        <Button x:Name="btn_Project1" Content="Test Project" HorizontalAlignment="Left" Height="170" Margin="330,200,0,0" VerticalAlignment="Top" Width="240" FontSize="24" FontFamily="Arial" Background="#FFF0F0F0" Opacity="0.7" BorderBrush="Black" Click="btn_Project1_Click"/>
         <Button x:Name="btn_Projects" Content="Projects" HorizontalAlignment="Left" Margin="210,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"/>
         <Button x:Name="btn_CreateNewProject" Content="Create new project" HorizontalAlignment="Left" Margin="393,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_CreateNewProject_Click"/>
         <Button x:Name="btn_Profile" Content="Login" HorizontalAlignment="Left" Height="90" Margin="1318,30,0,0" VerticalAlignment="Top" Width="90" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Background="White" BorderBrush="Black">
@@ -35,6 +33,26 @@
             </Button.Template>
 
         </Button>
+        <ListBox ItemsSource="{Binding ProjectNames}"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="334,189,687,43" BorderBrush="Black" FontSize="24" FontFamily="Arial" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding}"
+                            Margin="20"
+                            Padding="30"
+                            HorizontalAlignment="Stretch"
+                            Click="btn_Projects_Click"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Rectangle HorizontalAlignment="Left" Height="794" Margin="787,189,0,0" Stroke="Black" VerticalAlignment="Top" Width="621"/>
+        <Button x:Name="btn_OpenProject" Content="Open Project" HorizontalAlignment="Left" Height="57" Margin="938,908,0,0" VerticalAlignment="Top" Width="318" Background="#FFCBF1FF" FontFamily="Arial" FontSize="24"/>
+        <Label x:Name="lbl_ProjectName" Content="Label" HorizontalAlignment="Left" Height="40" Margin="810,278,0,0" VerticalAlignment="Top" Width="238" FontFamily="Arial" FontSize="24"/>
+        <ScrollViewer x:Name="scrllvwr_Description" VerticalScrollBarVisibility="Auto" Height="200" Width="300" Margin="480,0,0,50">
+            <TextBlock x:Name="txtblk_Description" TextWrapping="Wrap" Text="Здесь размещается длинный текст, который будет прокручиваться внутри блока. Добавь побольше текста, чтобы увидеть прокрутку..." FontSize="22" FontFamily="Arial" />
+        </ScrollViewer>
+        <Label Content="Project name:" HorizontalAlignment="Left" Height="40" Margin="810,233,0,0" VerticalAlignment="Top" Width="171" FontSize="24" FontFamily="Arial"/>
+        <Label Content="Project description" HorizontalAlignment="Left" Height="40" Margin="810,342,0,0" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Arial"/>
 
     </Grid>
 </Page>

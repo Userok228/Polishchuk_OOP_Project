@@ -12,7 +12,7 @@
         <Rectangle HorizontalAlignment="Left" Height="150" Stroke="Black" VerticalAlignment="Top" Width="150" Fill="#FF414789"/>
         <Label Content="Jora" HorizontalAlignment="Left" Height="103" VerticalAlignment="Top" Width="150" Foreground="White" FontSize="64" FontFamily="Segoe Script" Margin="0,24,0,0"/>
         <Rectangle HorizontalAlignment="Center" Height="800" Margin="0,187,0,0" Stroke="Black" VerticalAlignment="Top" Width="620" RadiusX="10" RadiusY="10" Fill="#FFD9D9D9"/>
-        <Button x:Name="btn_Done" Content="Done" HorizontalAlignment="Center" Height="70" Margin="0,899,0,0" VerticalAlignment="Top" Width="544" FontSize="32" FontFamily="Arial" FontWeight="Bold" Background="#FFCBF1FF" BorderBrush="#FF0E0000" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Click="btn_Done_Click">
+        <Button x:Name="btn_Done" Content="Done" HorizontalAlignment="Left" Height="70" Margin="735,899,0,0" VerticalAlignment="Top" Width="257" FontSize="32" FontFamily="Arial" FontWeight="Bold" Background="#FFCBF1FF" BorderBrush="#FF0E0000" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Click="btn_Done_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="#FFCBF1FF" CornerRadius="35" BorderBrush="Black" BorderThickness="1">
@@ -27,10 +27,19 @@
         <Label Content="Repeat password*"  HorizontalAlignment="Center" Height="38" Margin="0,623,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontWeight="Bold" FontFamily="Arial"/>
         <TextBox x:Name="txtbx_Username" HorizontalAlignment="Center" Margin="0,252,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="White" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Enter your username*" HorizontalAlignment="Center" Height="38" Margin="0,209,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontWeight="Bold" FontFamily="Arial"/>
-        <PasswordBox x:Name="psswrdbx_Password" HorizontalAlignment="Center" Margin="0,523,0,0" VerticalAlignment="Top" Width="544" Height="70"/>
-        <PasswordBox x:Name="psswrdbx_RepeatPassword" HorizontalAlignment="Center" Margin="0,661,0,0" VerticalAlignment="Top" Width="544" Height="70"/>
+        <PasswordBox x:Name="psswrdbx_Password" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,523,0,0" VerticalAlignment="Top" Width="544" Height="70" FontSize="32"/>
+        <PasswordBox x:Name="psswrdbx_RepeatPassword" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,661,0,0" VerticalAlignment="Top" Width="544" Height="70" FontSize="32"/>
         <TextBox x:Name="txtbx_Email" HorizontalAlignment="Center" Margin="0,799,0,0" TextAlignment="Center" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="544" Background="White" Height="70" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5"/>
         <Label Content="Enter your email"  HorizontalAlignment="Center" Height="38" Margin="0,761,0,0" VerticalAlignment="Top" Width="544" FontSize="24" FontWeight="Bold" FontFamily="Arial"/>
+        <Button x:Name="btn_Cancel" Content="Cancel" HorizontalAlignment="Left" Height="70" Margin="448,899,0,0" VerticalAlignment="Top" Width="257" FontSize="32" FontFamily="Arial" FontWeight="Bold" Background="#FFCBF1FF" BorderBrush="#FF0E0000" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Click="btn_Cancel_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="#FFCBF1FF" CornerRadius="35" BorderBrush="Black" BorderThickness="1">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
     </Grid>
 
