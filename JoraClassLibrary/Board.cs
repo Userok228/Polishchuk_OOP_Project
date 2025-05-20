@@ -25,7 +25,6 @@ namespace JoraClassLibrary
             newcolumn.Name = name;
             Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Columns"), name));
             _columns.Add(newcolumn);
-            RefreshListColumns(projectName); 
 
             return true;
         }
@@ -37,22 +36,31 @@ namespace JoraClassLibrary
         {
             _columns = col;
         }
-        public bool RefreshListColumns(string projectName)
+        public bool LoadListColumnsWithTasks_FromFile(string name)// не нужно?
         {
-            string[] directories = Directory.GetDirectories(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Columns"));
+            string[] directories = Directory.GetDirectories(Path.Combine(Path.Combine(AllProjectsPath, name), "Columns"));
             if (directories != null)
             {
 
                 foreach (string d in directories)
                 {
                     Column column = new Column();
-                    column.Name = d;
-                    Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Columns"), d);
+                    column.Name = Path.GetFileName(d);
+                    column.RefreshColumnTasks(name);
                     _columns.Add(column);
                 }
                 return true;
             }
             else return false;
+        }
+        internal List <string> GetColumnsNames()
+        {
+            List<string> names = new List<string>();
+           foreach(Column c in _columns)
+            {
+                names.Add(c.Name);
+            }
+            return names;
         }
         public bool ChangeColumnName(string oldName, string newName)
         {

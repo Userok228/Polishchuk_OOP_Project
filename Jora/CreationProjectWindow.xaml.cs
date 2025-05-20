@@ -39,9 +39,10 @@ namespace Jora
                 txtblk_FormatErrors.Text = "The description length must be less than 200 characters.";
                 return;
             }
-                string deadline = txtbx_Deadline.Text;
                 DateTime dead;
-                if (DateTime.TryParseExact(deadline, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dead))
+            if (txtbx_Deadline.Text.Length!=0)
+            {
+                if (DateTime.TryParseExact(txtbx_Deadline.Text, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dead))
                 {
                     if (dead < DateTime.Today)
                     {
@@ -54,7 +55,14 @@ namespace Jora
                     txtblk_FormatErrors.Text = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
                     return;
                 }
-              if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, dead, CurrentUser.Instance.currentUser.login))
+                if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, dead, CurrentUser.Instance.currentUser.login))
+                {
+                    txtblk_FormatErrors.Text = "Thomething went erong :/";
+                    return;
+                }
+            }
+            else
+              if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, null, CurrentUser.Instance.currentUser.login))
               {   
                   txtblk_FormatErrors.Text = "Thomething went erong :/";
                   return;

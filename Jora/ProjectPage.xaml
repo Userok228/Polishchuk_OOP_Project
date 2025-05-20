@@ -11,8 +11,8 @@
         <Rectangle Height="150" Stroke="Black" VerticalAlignment="Top" Fill="#FFCBF1FF"/>
         <Rectangle HorizontalAlignment="Left" Height="150" Stroke="Black" VerticalAlignment="Top" Width="150" Fill="#FF414789"/>
         <Label Content="Jora" HorizontalAlignment="Left" Height="103" VerticalAlignment="Top" Width="150" Foreground="White" FontSize="64" FontFamily="Segoe Script" Margin="0,24,0,0"/>
-        <Button x:Name="btn_Projects" Content="Projects" HorizontalAlignment="Left" Margin="210,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_Projects_Click_1"/>
-        <Button x:Name="btn_CreateNewProject" Content="Create new project" HorizontalAlignment="Left" Margin="393,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"/>
+        <Button x:Name="btn_Projects" Content="Projects" HorizontalAlignment="Left" Margin="210,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_Projects_Click"/>
+        <Button x:Name="btn_CreateNewProject" Content="Create new project" HorizontalAlignment="Left" Margin="393,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_CreateNewProject_Click"/>
         <Button x:Name="btn_Profile" Content="Login" HorizontalAlignment="Left" Height="90" Margin="1318,30,0,0" VerticalAlignment="Top" Width="90" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Background="White" BorderBrush="Black">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">

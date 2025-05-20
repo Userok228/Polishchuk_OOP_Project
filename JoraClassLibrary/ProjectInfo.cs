@@ -6,42 +6,17 @@ using System.Threading.Tasks;
 
 namespace JoraClassLibrary
 {
-    internal class ProjectInfo
+    public class ProjectInfo
     {
-        public string ?description;
-        public DateTime creationDate;
-        public DateTime? deadline;
+        public string? description { get; set; }
+        public DateTime? deadline { get; set; }
+        public DateTime creationDate { get; set; } = DateTime.Now;
 
         public void SetProjetcInfo(string? desc, DateTime? dead)
         {
-            Deadline = dead;
-            Description = desc;
+            deadline = dead;
+            description = desc;
         } 
 
-        public string? Description
-        {
-            get { return description; }
-            private set
-            {
-                description = value;
-            }
-        }
-        public DateTime CreationDate
-        {
-            get { return creationDate; }
-            private set
-            {
-                creationDate = DateTime.Now;
-            }
-        }
-        public DateTime? Deadline
-        {
-            get { return deadline; }
-            private set
-            {
-                deadline = value;
-            }
-
-        }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.Json;
+using JoraClassLibrary;
 
 namespace Jora
 {
@@ -20,14 +22,37 @@ namespace Jora
     /// </summary>
     public partial class ProjectSummaryPage : Page
     {
+        RoleEnum currentRole;
         public ProjectSummaryPage()
         {
             InitializeComponent();
+            currentRole = StorageProjects.Instance.GetCurrentRole();
+            if (currentRole==RoleEnum.Leader)
+            {
+                txtbx_Adver.IsEnabled = true;
+            }
+            txtbx_Adver.Text = StorageProjects.Instance.GetAdver();
+            btn_SaveAdver.Visibility = Visibility.Hidden;
+            int tasksCount=0;
+            foreach (string col in StorageProjects.Instance.GetSummaryInfo())
+            {
+                if (col != null)
+                {
+                    scrllvwr_Issues.Items.Add(col);
+                    char lastChar = col[col.Length - 1];
+                    int.TryParse(lastChar.ToString(), out int res);
+                    tasksCount+=res;
+                }
+            }
+            lbl_IssuesTotal.Content = $"You have {tasksCount} issues in total";
         }
 
         private void btn_SaveAdver_Click(object sender, RoutedEventArgs e)
         {
-            //Прописать сохранения объявлений в json 
+            if (!StorageProjects.Instance.SaveAdver(txtbx_Adver.Text))
+            MessageBox.Show("The advertisements should not be longer than 2500 characters.");
+                else
+            btn_SaveAdver.Visibility = Visibility.Hidden;
         }
 
         private void TextBlock_Initialized(object sender, EventArgs e)
@@ -60,6 +85,11 @@ namespace Jora
         private void btn_Board_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ProjectBoardPage());
+        }
+
+        private void txtbx_Adver_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            btn_SaveAdver.Visibility = Visibility.Visible;
         }
     }
 }

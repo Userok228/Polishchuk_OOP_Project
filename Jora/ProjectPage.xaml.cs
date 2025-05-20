@@ -25,15 +25,14 @@ namespace Jora
             InitializeComponent();
             InProjectFrame.Content = new ProjectSummaryPage();
         }
-
         private void btn_Projects_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new ProjectSelectionPage_AllProjects());
         }
-
-        private void btn_Projects_Click_1(object sender, RoutedEventArgs e)
-        {
-
+        private void btn_CreateNewProject_Click(object sender, RoutedEventArgs e)
+        {      
+            var page = new ProjectSelectionPage_AllProjects();
+            page.CreationProjectFromOtherPage();
         }
     }
 }

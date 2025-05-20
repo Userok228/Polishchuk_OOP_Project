@@ -46,13 +46,17 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Rectangle HorizontalAlignment="Left" Height="794" Margin="787,189,0,0" Stroke="Black" VerticalAlignment="Top" Width="621"/>
-        <Button x:Name="btn_OpenProject" Content="Open Project" HorizontalAlignment="Left" Height="57" Margin="938,908,0,0" VerticalAlignment="Top" Width="318" Background="#FFCBF1FF" FontFamily="Arial" FontSize="24"/>
-        <Label x:Name="lbl_ProjectName" Content="Label" HorizontalAlignment="Left" Height="40" Margin="810,278,0,0" VerticalAlignment="Top" Width="238" FontFamily="Arial" FontSize="24"/>
-        <ScrollViewer x:Name="scrllvwr_Description" VerticalScrollBarVisibility="Auto" Height="200" Width="300" Margin="480,0,0,50">
-            <TextBlock x:Name="txtblk_Description" TextWrapping="Wrap" Text="Здесь размещается длинный текст, который будет прокручиваться внутри блока. Добавь побольше текста, чтобы увидеть прокрутку..." FontSize="22" FontFamily="Arial" />
+        <Button x:Name="btn_OpenProject" Content="Open Project" HorizontalAlignment="Left" Height="57" Margin="938,908,0,0" VerticalAlignment="Top" Width="318" Background="#FFCBF1FF" FontFamily="Arial" FontSize="24" Click="btn_OpenProject_Click" Visibility="Hidden"/>
+        <Label x:Name="lbl_ProjectName" Content="" HorizontalAlignment="Left" Height="40" Margin="810,278,0,0" VerticalAlignment="Top" Width="553" FontFamily="Arial" FontSize="24" Visibility="Hidden"/>
+        <ScrollViewer x:Name="scrllvwr_Description" VerticalScrollBarVisibility="Auto" Height="200" Margin="810,388,58,438" Visibility="Hidden">
+            <TextBlock x:Name="txtblk_Description" TextWrapping="Wrap" FontSize="22" FontFamily="Arial" Visibility="Hidden" />
         </ScrollViewer>
-        <Label Content="Project name:" HorizontalAlignment="Left" Height="40" Margin="810,233,0,0" VerticalAlignment="Top" Width="171" FontSize="24" FontFamily="Arial"/>
-        <Label Content="Project description" HorizontalAlignment="Left" Height="40" Margin="810,342,0,0" VerticalAlignment="Top" Width="208" FontSize="24" FontFamily="Arial"/>
+        <Label x:Name="lbl_PN" Content="Project name:" HorizontalAlignment="Left" Height="40" Margin="810,233,0,0" VerticalAlignment="Top" Width="171" FontSize="24" FontFamily="Arial" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lbl_PD" Content="Project description:" HorizontalAlignment="Left" Height="40" Margin="810,342,0,0" VerticalAlignment="Top" Width="238" FontSize="24" FontFamily="Arial" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lbl_PDL" Content="Project deadline:" HorizontalAlignment="Left" Height="40" Margin="810,659,0,0" VerticalAlignment="Top" Width="238" FontSize="24" FontFamily="Arial" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lbl_PCD" Content="Project creation date:" HorizontalAlignment="Left" Height="40" Margin="810,768,0,0" VerticalAlignment="Top" Width="259" FontSize="24" FontFamily="Arial" FontWeight="Bold" Visibility="Hidden"/>
+        <Label x:Name="lbl_ProjectDeadline" Content="" HorizontalAlignment="Left" Height="40" Margin="810,704,0,0" VerticalAlignment="Top" Width="336" FontFamily="Arial" FontSize="24" Visibility="Hidden"/>
+        <Label x:Name="lbl_ProjectCreationDate" Content="" HorizontalAlignment="Left" Height="40" Margin="810,813,0,0" VerticalAlignment="Top" Width="238" FontFamily="Arial" FontSize="24" Visibility="Hidden"/>
 
     </Grid>
 </Page>

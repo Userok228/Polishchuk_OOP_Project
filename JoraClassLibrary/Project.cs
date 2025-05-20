@@ -58,11 +58,14 @@ namespace JoraClassLibrary
         { 
         board.RemoveColumn(columnName);
         }
-        internal void SetColumnsWithTasks(List<Column> columns)
+        internal List<string> GetColumnsNames()
         {
-            board.SetColumns(columns);
+            return board.GetColumnsNames();
         }
-
+        internal void SetColumnsWithTasks(string name)
+        {
+            board.LoadListColumnsWithTasks_FromFile(name);
+        }
         internal bool AddNewTask(string columnName, Task task)
         {
             if (board.AddNewTask(columnName, task)) return true;

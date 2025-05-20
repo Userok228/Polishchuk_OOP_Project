@@ -7,7 +7,7 @@ using System.Text.Json;
 
 namespace JoraClassLibrary
 {
-    internal class Column// нужно чтото сделать с projectName в методах(автоматизировать)
+    internal class Column
     {
         private string name;
         public string Name
@@ -27,7 +27,7 @@ namespace JoraClassLibrary
         public void AddTask(string projectName, string name, string description, DateTime deadline) 
         {
            Task newtask = new Task(name,description,deadline);
-            string pathColumn = Path.Combine(Path.Combine(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AllProjects"), projectName), "_columns"), this.name);
+            string pathColumn = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "_columns"), this.name);
             string json = JsonSerializer.Serialize(newtask);
             File.WriteAllText(pathColumn, json);
 
@@ -51,8 +51,8 @@ namespace JoraClassLibrary
         }
         public bool RefreshColumnTasks(string projectName)
         {
-            if (!File.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AllProjects"), projectName), "Columns"), name))) return false;
-            foreach (var filePath in Directory.GetFiles((Path.Combine(Path.Combine(Path.Combine(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AllProjects"), projectName), "Columns"), name)), "*.json"))
+            if (!File.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "Columns"), name))) return false;
+            foreach (var filePath in Directory.GetFiles((Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "Columns"), name)), "*.json"))
             {
                 string json = File.ReadAllText(filePath);
                 

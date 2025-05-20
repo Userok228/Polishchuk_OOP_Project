@@ -11,6 +11,7 @@ namespace JoraClassLibrary
         public string userLogin { get; set; }
         public RoleEnum role { get; set; }
 
+        public ProjectUser() { }
         public ProjectUser(string user, RoleEnum role)
         {
             this.userLogin = user;

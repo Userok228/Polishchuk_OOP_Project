@@ -73,27 +73,29 @@ namespace JoraClassLibrary
             string projectInfoJson = File.ReadAllText(Path.Combine(Path.Combine(AllProjectsPath, projectName), "ProjectInfo.json"));
             ProjectInfo projInf = JsonSerializer.Deserialize<ProjectInfo>(projectInfoJson);
             projectFromFile.SetProjectInfo(projInf);
-            List<ProjectUser> projectUsers = new List<ProjectUser>();
-            projectUsers = JsonSerializer.Deserialize<List<ProjectUser>>((Path.Combine(Path.Combine(AllProjectsPath, projectName), "Team.json")));
+            string projectUsersJson = File.ReadAllText(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Team.json"));
+            List<ProjectUser> projectUsers = JsonSerializer.Deserialize<List<ProjectUser>>(projectUsersJson);
             projectFromFile.SetTeam(projectUsers);
-            string[] columnNames = Directory.GetDirectories(Path.Combine(AllProjectsPath, "Columns"));
+            string[] columnsPath = Directory.GetDirectories(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Columns"));
+            string[] columnNames = Array.ConvertAll(columnsPath, Path.GetFileName);
             List<Column> columnsJson = new List<Column>();
-            for (int i =0; i < columnNames.Length; i++)
-            {
-                Column columnJson = new Column();
-                foreach (var filePath in Directory.GetFiles((Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, projectName), "Columns"), Path.GetFileName(columnNames[i]))), "*.json"))
-                {
-                    Task taskJson = JsonSerializer.Deserialize<Task>(filePath);
-                    columnJson.AddNewTask(taskJson);
-                }
-                columnsJson.Add(columnJson);
-            }
-            projectFromFile.SetColumnsWithTasks(columnsJson);
+            projectFromFile.SetColumnsWithTasks(projectName);
             CurrentProject.Instance.SetProject(projectFromFile);
             return true;
 
         }
 
+        public List<string> GetSummaryInfo()
+        {
+            List<string> columns = new List<string>();
+            foreach (string c in CurrentProject.Instance.currentProject.GetColumnsNames())
+            {
+                int i = Directory.GetFiles(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), c), "*.json").Length;
+                columns.Add(c+": "+i);
+            }
+            return columns;
+            
+        }
         public bool DeleteProject(string name)//удаление проекта в листе проектов каждого пользователя есть в GetExistingUserProjects()
         {
             if (!Directory.Exists(Path.Combine(AllProjectsPath, name)))
@@ -165,15 +167,45 @@ namespace JoraClassLibrary
             File.WriteAllText(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "ProjectInfo.json"), newProjectInfoJson);
             return true;
         }
-        internal ProjectInfo GetProjectInfoByProjectName(string projectName)// готовый метод для показания характеристик проетка в окне выбора проектов
+        public ProjectInfo GetProjectInfoByProjectName(string projectName)// готовый метод для показания характеристик проетка в окне выбора проектов
         {
-            return JsonSerializer.Deserialize<ProjectInfo>(Path.Combine(Path.Combine(AllProjectsPath, projectName), "ProjectInfo.json"));
+            string text = File.ReadAllText(Path.Combine(Path.Combine(AllProjectsPath, projectName), "ProjectInfo.json"));
+            return JsonSerializer.Deserialize<ProjectInfo>(text, new JsonSerializerOptions{PropertyNameCaseInsensitive = true});
         }
 
+        public bool SaveAdver(string adver)
+        {
+            if (adver.Length < 2500)
+            {
+                string json = JsonSerializer.Serialize(adver);
+                using (var f = File.Create(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Advertisements.json"))) { }
+                File.WriteAllText(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Advertisements.json"), json);
+                return true;    
+            }
+            return false;
+        }
+
+        public string GetAdver()
+        {
+            if (File.Exists(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Advertisements.json")))
+            {
+                return JsonSerializer.Deserialize<string>(File.ReadAllText(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Advertisements.json")));
+            }
+            else return string.Empty;
+        }
         //МЕТОДЫ ДЛЯ УПРАВЛЕНИЯ ПОЛЬЗОВАТЕЛЯМИ ПРОЕКТА
 
-        
-        
+
+        public RoleEnum GetCurrentRole()
+        {
+            foreach (ProjectUser u in CurrentProject.Instance.currentProject.GetTeam)
+            {
+                if (CurrentUser.Instance.currentUser.login == u.userLogin)
+                    return u.role;
+            }
+
+            throw new Exception("User not found");
+        }
 
         public bool AddUserToCurrentProject(string login, RoleEnum role)// готовый метод для добавления пользователя в тиму проекта (у пользователя проект тоже появляется в списке проектов пользователя)
         {
