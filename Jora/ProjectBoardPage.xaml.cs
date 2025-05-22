@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JoraClassLibrary;
 
 namespace Jora
 {
@@ -21,11 +23,84 @@ namespace Jora
     /// </summary>
     public partial class ProjectBoardPage : Page
     {
+        public bool lead = false;
+        public static TaskInfoWindow taskwindow;
+        public static ChangeColumnWindow changecolumn;
+        public static string currentcolumnname;
+        public List <Column> LoadingColumns { get; set; }
         public ProjectBoardPage()
         {
             InitializeComponent();
+            if (StorageProjects.Instance.GetCurrentRole()==RoleEnum.Leader)
+            lead = true;
+            LoadingColumns = StorageProjects.Instance.GetColumns();
+            this.DataContext = this;
         }
 
+        private void TaskInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var task = button?.Tag as ProjectTask;
+            if (task != null && taskwindow == null)
+            {
+                taskwindow = new TaskInfoWindow(task);
+                taskwindow.Closed += (s, args) =>
+                {
+                    NavigationService.Navigate(new ProjectBoardPage());
+                    taskwindow = null;
+                };
+                taskwindow.Show();
+            }
+            else taskwindow.Activate();
+        }
+        private void TaskMouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                var border = sender as Border;
+                var task = border?.DataContext as ProjectTask;
+                if (task != null)
+                {
+                    DragDrop.DoDragDrop(border, task, DragDropEffects.Move);
+                }
+            }
+        }
+
+        // Позволяет сброс (визуально и логически)
+        private void Drag(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ProjectTask)))
+            {
+                e.Effects = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+            e.Handled = true;
+        }
+
+        // Обработка сброса
+        private void Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ProjectTask)))
+            {
+                
+                var task = e.Data.GetData(typeof(ProjectTask)) as ProjectTask;
+                if (task == null)  return;
+
+
+                var border = sender as Border;
+                var newColumn = border?.Tag as Column;
+                if (newColumn == null) return;
+               
+       
+                var oldColumn = LoadingColumns.FirstOrDefault(c => c._tasks.Contains(task));
+                StorageProjects.Instance.SaveMovedTask(oldColumn.Name, newColumn.Name, task.Name);
+                NavigationService.Navigate(new ProjectBoardPage());
+
+            }
+        }
         private void btn_Summary_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ProjectSummaryPage());
@@ -43,11 +118,10 @@ namespace Jora
 
         private void btn_AddColumn_Click(object sender, RoutedEventArgs e)
         {
-            scrllvwr_Tasks.Visibility=Visibility.Hidden;
+            scrllvwr_Columns.Visibility=Visibility.Hidden;
             btn_AddColumn.Visibility=Visibility.Hidden;
             rctngl_AddColumn.Visibility=Visibility.Hidden;
-            btn_AddTask.Visibility=Visibility.Hidden;
-            rctngl_AddTask.Visibility=Visibility.Hidden;
+
 
             txtbx_NameAddColumn.Clear();
             rctngl_BackGroundAddColumn.Visibility=Visibility.Visible;
@@ -64,45 +138,22 @@ namespace Jora
         {
             if (txtbx_NameAddColumn.Text.Length > 0 && txtbx_NameAddColumn.Text.Length < 40)
             {
-                rctngl_BackGroundAddColumn.Visibility = Visibility.Hidden;
-                rctngl_DoneAddColumn.Visibility = Visibility.Hidden;
-                rctngl_CancelAddColumn.Visibility = Visibility.Hidden;
-                btn_DoneAddColumn.Visibility = Visibility.Hidden;
-                btn_CancelAddColumn.Visibility = Visibility.Hidden;
-                txtbx_NameAddColumn.Visibility = Visibility.Hidden;
-                lbl_NameAddColumn.Visibility = Visibility.Hidden;
-                lbl_ErrorAddColumn.Visibility = Visibility.Hidden;
+                StorageProjects.Instance.CreateNewColumn(txtbx_NameAddColumn.Text);
+                NavigationService.Navigate(new ProjectBoardPage());
 
-                scrllvwr_Tasks.Visibility = Visibility.Visible;
-                btn_AddColumn.Visibility = Visibility.Visible;
-                rctngl_AddColumn.Visibility = Visibility.Visible;
-                btn_AddTask.Visibility = Visibility.Visible;
-                rctngl_AddTask.Visibility = Visibility.Visible;
-                // добавление и сохранение новой колонки
             }
             else lbl_ErrorAddColumn.Visibility = Visibility.Visible;
         }
         private void btn_CancelAddColumn_Click(object sender, RoutedEventArgs e)
         {
-            lbl_ErrorAddColumn.Visibility = Visibility.Hidden;
-            rctngl_BackGroundAddColumn.Visibility = Visibility.Hidden;
-            rctngl_DoneAddColumn.Visibility = Visibility.Hidden;
-            rctngl_CancelAddColumn.Visibility = Visibility.Hidden;
-            btn_DoneAddColumn.Visibility = Visibility.Hidden;
-            btn_CancelAddColumn.Visibility = Visibility.Hidden;
-            txtbx_NameAddColumn.Visibility = Visibility.Hidden;
-            lbl_NameAddColumn.Visibility = Visibility.Hidden;
-            
-
-            scrllvwr_Tasks.Visibility = Visibility.Visible;
-            btn_AddColumn.Visibility = Visibility.Visible;
-            rctngl_AddColumn.Visibility = Visibility.Visible;
-            btn_AddTask.Visibility = Visibility.Visible;
-            rctngl_AddTask.Visibility = Visibility.Visible;
+            NavigationService.Navigate(new ProjectBoardPage());
         }
 
         private void btn_AddTask_Click(object sender, RoutedEventArgs e)
         {
+            var button = sender as Button;
+            var column = button?.Tag as Column;
+            currentcolumnname = column.Name;
             lbl_ErrorAddTask.Visibility = Visibility.Visible;
             rctngl_BackGroundAddTask.Visibility = Visibility.Visible;
             rctngl_DoneAddTask.Visibility = Visibility.Visible;
@@ -124,31 +175,41 @@ namespace Jora
             txtbx_DiscriptionAddTask.Clear();
             txtbx_DeadlineAddTask.Clear();
 
-            scrllvwr_Tasks.Visibility = Visibility.Hidden;
+            scrllvwr_Columns.Visibility = Visibility.Hidden;
             btn_AddColumn.Visibility = Visibility.Hidden;
             rctngl_AddColumn.Visibility = Visibility.Hidden;
-            btn_AddTask.Visibility = Visibility.Hidden;
-            rctngl_AddTask.Visibility = Visibility.Hidden;
+
 
         }
 
         private void btn_DoneAddTask_Click(object sender, RoutedEventArgs e)
         {
+            
             if (txtbx_NameAddTask.Text.Length < 1 || txtbx_NameAddTask.Text.Length > 40)
             {
-                lbl_ErrorAddTask.Content = "The length of the task name must be greater than 0 and less than 40 characters";
+                lbl_ErrorAddTask.Content = "The length of the col name must be greater than 0 and less than 40 characters";
                 lbl_ErrorAddTask.Visibility = Visibility.Visible;
                 return;
             }
             else
                 if (txtbx_DiscriptionAddTask.Text.Length != 0 && txtbx_DiscriptionAddTask.Text.Length > 200)
             {
-                lbl_ErrorAddTask.Content = "The length of the task description must be less than 200 characters";
+                lbl_ErrorAddTask.Content = "The length of the col description must be less than 200 characters";
                 lbl_ErrorAddTask.Visibility = Visibility.Visible;
                 return;
             }
             else
                  if (txtbx_DeadlineAddTask.Text.Length != 0)
+            {
+                
+
+                    lbl_ErrorAddTask.Content = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
+                    lbl_ErrorAddTask.Visibility = Visibility.Visible;
+                    return;
+                
+            }
+           
+            if (txtbx_DeadlineAddTask.Text.Length != 0)
             {
                 string deadline = txtbx_DeadlineAddTask.Text;
                 DateTime dead;
@@ -156,69 +217,50 @@ namespace Jora
                 {
                     if (dead < DateTime.Today)
                     {
+
                         lbl_ErrorAddTask.Content = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
                         lbl_ErrorAddTask.Visibility = Visibility.Visible;
                         return;
+                     
                     }
                 }
                 else
                 {
+
                     lbl_ErrorAddTask.Content = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
                     lbl_ErrorAddTask.Visibility = Visibility.Visible;
                     return;
+                    
                 }
+                StorageProjects.Instance.CreateNewTask(currentcolumnname, txtbx_NameAddTask.Text, txtbx_DiscriptionAddTask.Text, dead);
             }
-
-            lbl_ErrorAddTask.Visibility = Visibility.Hidden;
-            rctngl_BackGroundAddTask.Visibility = Visibility.Hidden;
-            rctngl_DoneAddTask.Visibility = Visibility.Hidden;
-            rctngl_CancelAddTask.Visibility = Visibility.Hidden;
-            btn_DoneAddTask.Visibility = Visibility.Hidden;
-            btn_CancelAddTask.Visibility = Visibility.Hidden;
-            txtbx_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_ErrorAddTask.Visibility = Visibility.Hidden;
-            btn_DoneAddTask.Visibility = Visibility.Hidden;
-            lbl_DiscriptionAddTask.Visibility = Visibility.Hidden;
-            lbl_DeadlineAddTask.Visibility = Visibility.Hidden;
-            txtbx_DiscriptionAddTask.Visibility = Visibility.Hidden;
-            txtbx_DeadlineAddTask.Visibility = Visibility.Hidden;
-
-            scrllvwr_Tasks.Visibility = Visibility.Visible;
-            btn_AddColumn.Visibility = Visibility.Visible;
-            rctngl_AddColumn.Visibility = Visibility.Visible;
-            btn_AddTask.Visibility = Visibility.Visible;
-            rctngl_AddTask.Visibility = Visibility.Visible;
+            else
+            StorageProjects.Instance.CreateNewTask(currentcolumnname, txtbx_NameAddTask.Text, txtbx_DiscriptionAddTask.Text, null);
+            NavigationService.Navigate(new ProjectBoardPage());
 
             // добавление и сохранение новой задачи
         }
 
         private void btn_CancelAddTask_Click(object sender, RoutedEventArgs e)
         {
-            lbl_ErrorAddTask.Visibility = Visibility.Hidden;
-            rctngl_BackGroundAddTask.Visibility = Visibility.Hidden;
-            rctngl_DoneAddTask.Visibility = Visibility.Hidden;
-            rctngl_CancelAddTask.Visibility = Visibility.Hidden;
-            btn_DoneAddTask.Visibility = Visibility.Hidden;
-            btn_CancelAddTask.Visibility = Visibility.Hidden;
-            txtbx_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_NameAddTask.Visibility = Visibility.Hidden;
-            lbl_ErrorAddTask.Visibility = Visibility.Hidden;
-            btn_DoneAddTask.Visibility = Visibility.Hidden;
-            lbl_DiscriptionAddTask.Visibility = Visibility.Hidden;
-            lbl_DeadlineAddTask.Visibility = Visibility.Hidden;
-            txtbx_DiscriptionAddTask.Visibility = Visibility.Hidden;
-            txtbx_DeadlineAddTask.Visibility = Visibility.Hidden;
-
-            scrllvwr_Tasks.Visibility = Visibility.Visible;
-            btn_AddColumn.Visibility = Visibility.Visible;
-            rctngl_AddColumn.Visibility = Visibility.Visible;
-            btn_AddTask.Visibility = Visibility.Visible;
-            rctngl_AddTask.Visibility = Visibility.Visible;
+            NavigationService.Navigate(new ProjectBoardPage());
         }
 
-        
+        private void btn_ChangeColumn_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var col = button?.Tag as Column;
+            if (col != null && changecolumn == null)
+            {
+                changecolumn = new ChangeColumnWindow(col.Name);
+                changecolumn.Closed += (s, args) =>
+                {
+                    NavigationService.Navigate(new ProjectBoardPage());
+                    changecolumn = null;
+                };
+                changecolumn.Show();
+            }
+            else changecolumn.Activate();
+        }
     }
 }

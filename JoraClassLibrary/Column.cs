@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using System.Collections.ObjectModel;
 
 namespace JoraClassLibrary
 {
-    internal class Column
+    public class Column
     {
         private string name;
         public string Name
@@ -21,51 +22,61 @@ namespace JoraClassLibrary
                     
             }
         }
-        //подгрузка задачь из файла в лист колонки
-        public List<Task> _tasks = new List<Task>();
-        
+
+        public ObservableCollection<ProjectTask> _tasks { get; set; } = new ObservableCollection<ProjectTask>();
+
         public void AddTask(string projectName, string name, string description, DateTime deadline) 
         {
-           Task newtask = new Task(name,description,deadline);
+           ProjectTask newtask = new ProjectTask(name,description,deadline);
             string pathColumn = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "_columns"), this.name);
             string json = JsonSerializer.Serialize(newtask);
             File.WriteAllText(pathColumn, json);
 
         }
-        public void AddNewTask(Task task)
+        public void AddNewTask(ProjectTask task)
         {
             _tasks.Add(task);
         }
-        public void ChangeTask(string taskName, Task changedTask)
+        public void ChangeTask(string taskName, ProjectTask changedTask)
         {
-            foreach (Task t in _tasks)
+            for(int i =0; i < _tasks.Count; i++)
             {
-                if (t.Name == taskName)
+                if (_tasks[i].Name == taskName)
                 {
-                    _tasks.Remove(t);
+                    _tasks.Remove(_tasks[i]);
                     _tasks.Add(changedTask);
-                    return;
-
                 }
             }
         }
-        public bool RefreshColumnTasks(string projectName)
+        public bool LoadColumnTasksFromFile(string projectName, string colname)
         {
-            if (!File.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "Columns"), name))) return false;
-            foreach (var filePath in Directory.GetFiles((Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects")), projectName), "Columns"), name)), "*.json"))
+            if (!Directory.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects"), projectName), "Columns"), colname))) throw new Exception();
+            string[] pathes;
+            pathes = Directory.GetFiles(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"), "AllProjects"), projectName), "Columns"), colname), "*.json");
+            if(pathes==null) throw new Exception();
+            foreach (string filePath in pathes)
             {
                 string json = File.ReadAllText(filePath);
-                
-                _tasks.Add(JsonSerializer.Deserialize<Task>(json));
+                Console.WriteLine(json);
+                ProjectTask task = JsonSerializer.Deserialize<ProjectTask>(json);
+                if (task != null)
+                _tasks.Add(task);
+
             }
             return true;
 
         }
 
-        public Task GetTaskFromAColumn(string taskName)
+        public ProjectTask GetTaskFromAColumn(string taskName)
         {
-            return _tasks.FirstOrDefault(t => t.Name == taskName);
+            foreach (ProjectTask task in _tasks)
+            {
+                if (task.Name == taskName)
+                        return task;
+            }
+            return null;
         }
+
 
     }
 }

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="ChangeColumnWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreationProjectWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -34,8 +37,14 @@
     <Compile Update="ProjectPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="TaskInfoWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="ChangeColumnWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreationProjectWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -64,6 +73,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="ProjectPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TaskInfoWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

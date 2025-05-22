@@ -16,7 +16,7 @@
         <Button x:Name="btn_SaveAdver" Content="Save advertisements" HorizontalAlignment="Left" Height="60" Margin="1003,764,0,0" VerticalAlignment="Top" Width="302" FontSize="24" FontFamily="Arial" Click="btn_SaveAdver_Click" Visibility="Hidden"/>
         <Rectangle HorizontalAlignment="Left" Height="874" Stroke="Black" VerticalAlignment="Center" Width="300" Fill="#FFCBF1FF"/>
         <Button x:Name="btn_Summary" HorizontalContentAlignment="Left" Content="Summary" HorizontalAlignment="Left" Height="34" Margin="37,37,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}"/>
-        <TextBox x:Name="txtbx_Adver"  HorizontalAlignment="Left" Height="668" Margin="936,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" FontSize="22" FontFamily="Arial" Background="{x:Null}" Initialized="txtbx_Adver_Initialized" IsEnabled="False" TextChanged="txtbx_Adver_TextChanged"/>
+        <TextBox x:Name="txtbx_Adver" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Height="668" Margin="936,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" FontSize="22" FontFamily="Arial" Background="{x:Null}" Initialized="txtbx_Adver_Initialized" IsEnabled="False" TextChanged="txtbx_Adver_TextChanged"/>
         <Button x:Name="btn_Board" HorizontalContentAlignment="Left" Content="Board" HorizontalAlignment="Left" Height="34" Margin="37,103,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_Board_Click"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,86,0,0" VerticalAlignment="Top" Width="224"/>
         <Button x:Name="btn_Chat" HorizontalContentAlignment="Left" Content="Chat" HorizontalAlignment="Left" Height="34" Margin="38,175,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_Chat_Click"/>
@@ -27,8 +27,7 @@
             <ItemsControl x:Name="scrllvwr_Issues" ItemsSource="{Binding Columns}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock FontSize="16" Margin="5">
-                        <Run Text="{Binding ColumnNameWithCountTasks}" />
+                        <TextBlock Text="{Binding}" FontSize="24" Margin="0 7 0 7">
                         </TextBlock>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

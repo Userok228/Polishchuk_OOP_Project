@@ -34,9 +34,9 @@ namespace Jora
                 txtblk_FormatErrors.Text = "The name length must be greater than 0 and less than 40 characters.";
                 return;
             }
-            if (txtbx_Description.Text.Length > 1200)
+            if (txtbx_Description.Text.Length > 2500)
             {
-                txtblk_FormatErrors.Text = "The description length must be less than 200 characters.";
+                txtblk_FormatErrors.Text = "The description length must be less than 2500 characters.";
                 return;
             }
                 DateTime dead;

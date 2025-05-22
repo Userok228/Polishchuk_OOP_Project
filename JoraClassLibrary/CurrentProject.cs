@@ -31,10 +31,5 @@ namespace JoraClassLibrary
         {
             currentProject = projectFromFile;
         }
-
-        public string GetName()
-        {
-            return currentProject.Name;
-        }
     }
 }

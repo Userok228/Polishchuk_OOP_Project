@@ -34,7 +34,8 @@ namespace Jora
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            if (StorageUsers.Instance.LogIn(txtbx_Login.Text, psswrdbx_Password.Password))
+            //if (StorageUsers.Instance.LogIn(txtbx_Login.Text, psswrdbx_Password.Password))
+            if (StorageUsers.Instance.LogIn("login", "password"))
             {
                 NavigationService.Navigate(new ProjectSelectionPage_AllProjects());
             }

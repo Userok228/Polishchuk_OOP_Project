@@ -23,10 +23,12 @@ namespace Jora
     public partial class ProjectSummaryPage : Page
     {
         RoleEnum currentRole;
+        List<string> Columns = new List<string>();
         public ProjectSummaryPage()
         {
             InitializeComponent();
             currentRole = StorageProjects.Instance.GetCurrentRole();
+            Columns = StorageProjects.Instance.GetSummaryInfo();
             if (currentRole==RoleEnum.Leader)
             {
                 txtbx_Adver.IsEnabled = true;
@@ -55,10 +57,6 @@ namespace Jora
             btn_SaveAdver.Visibility = Visibility.Hidden;
         }
 
-        private void TextBlock_Initialized(object sender, EventArgs e)
-        {
-            // прописать вывод характеристик с из файла json окна Board
-        }
 
         private void txtbx_Adver_Initialized(object sender, EventArgs e)
         {
@@ -91,5 +89,7 @@ namespace Jora
         {
             btn_SaveAdver.Visibility = Visibility.Visible;
         }
+
+
     }
 }

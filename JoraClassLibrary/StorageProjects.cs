@@ -46,6 +46,7 @@ namespace JoraClassLibrary
                     Directory.CreateDirectory(Path.Combine(Path.Combine(AllProjectsPath, name)));
                 Directory.CreateDirectory(Path.Combine(Path.Combine(AllProjectsPath, name), "Columns"));
                 Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, name), "Columns"), "To Do"));
+
                 Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, name), "Columns"), "In Progress"));
                 Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, name), "Columns"), "Done"));
                 Project newProj = new Project();
@@ -236,31 +237,42 @@ namespace JoraClassLibrary
         public bool ChangeColumnNameCurrentProject(string oldColumnName, string newColumnName)//финальный метод для смены названия колонки
         {
             if (newColumnName == oldColumnName)
+                return true;
+            if(newColumnName.Length>40)
                 return false;
-
-            Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName));
+            if (Directory.Exists(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName)))
+                return false;
+           // Directory.CreateDirectory(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName));
             Directory.Move(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), oldColumnName), (Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName)));
-            Directory.Delete(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), oldColumnName));
+            
             CurrentProject.Instance.currentProject.ChangeColumnName(oldColumnName,newColumnName);
             return true;
         }
-
+        public List<string> GetColumnsNames()
+        {
+            return CurrentProject.Instance.currentProject.GetColumnsNames();
+        }
+        public List<Column> GetColumns()
+        {
+            return CurrentProject.Instance.currentProject.GetColumns();
+        }
         public bool DeleteColumn(string columnName)
         {
             string[] tasks = Directory.GetFiles(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName));
-            if (tasks.Length>0)
+            if (tasks.Length!=0)
                 return false;
             CurrentProject.Instance.currentProject.RemoveColumn(columnName);
+            Directory.Delete(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName));
             return true;
         }
         //МЕТОДЫ ДЛЯ УПРАВЛЕНИЯ ЗАДАЧАМИ
 
-        public bool CreateNewTask(string columnName, string name, string description, DateTime deadline)// готовый метод для создания новых задач уже в нужной колонке
+        public bool CreateNewTask(string columnName, string name, string? description, DateTime? deadline)// готовый метод для создания новых задач уже в нужной колонке
         {
-            Task newTask = new Task(name, description, deadline);
+            ProjectTask newTask = new ProjectTask(name, description, deadline);
             if (CurrentProject.Instance.currentProject.AddNewTask(columnName, newTask))
             {
-                File.CreateText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), name+".json", JsonSerializer.Serialize(newTask)));
+                File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), name+".json"), JsonSerializer.Serialize(newTask));
                 return true;
             }
             else
@@ -269,7 +281,7 @@ namespace JoraClassLibrary
 
         private bool ChangeTask(string columnName, string oldTaskName, string newTaskName, string newDescription, PriorityTaskEnum newPriority, DateTime newDeadline)
         {
-            Task newTask = CurrentProject.Instance.currentProject.GetTask(oldTaskName, columnName);
+            ProjectTask newTask = CurrentProject.Instance.currentProject.GetTask(newTaskName, columnName);
             newTask.Name = newTaskName;
             newTask.Description = newDescription;
             newTask.Priority = newPriority;
@@ -277,34 +289,35 @@ namespace JoraClassLibrary
             if (newTask == CurrentProject.Instance.currentProject.GetTask(oldTaskName, columnName))
                 return false;
             CurrentProject.Instance.currentProject.ChangeTask(oldTaskName, columnName, newTask);
+           // File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), newTaskName + ".json"), JsonSerializer.Serialize(newTask));
             return true;
         }
         public bool ChangeTaskWithSave(string columnName, string oldTaskName, string newTaskName, string newDescription, PriorityTaskEnum newPriority, DateTime newDeadline)// готовфй метод для изменения таска 
         {
-            if (!File.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), oldTaskName)))
-                return false;
-            if (newTaskName == oldTaskName)
-            {
-                string changedTaskJson = JsonSerializer.Serialize(CurrentProject.Instance.currentProject.GetTask(oldTaskName, columnName));
-                File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), oldTaskName), changedTaskJson);
-                return true;
-            }
-            ChangeTask(columnName, oldTaskName, newTaskName, newDescription, newPriority, newDeadline);
-            string changedTaskJsonWN = JsonSerializer.Serialize(CurrentProject.Instance.currentProject.GetTask(newTaskName, columnName));
-            File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), newTaskName), changedTaskJsonWN);
-            File.Delete(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), oldTaskName));
+            if (!File.Exists(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), oldTaskName+".json"))) 
+               return false;
+            if(!ChangeTask(columnName, oldTaskName, newTaskName, newDescription, newPriority, newDeadline)) { return false; }
+            string changedTaskJson = JsonSerializer.Serialize(CurrentProject.Instance.currentProject.GetTask(newTaskName, columnName));//oldtaskname
+            File.Delete(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), oldTaskName + ".json"));
+            File.WriteAllText(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), newTaskName + ".json"),changedTaskJson);
+                
+
             return true;
+            
+            
         }
         public void SaveMovedTask(string oldColumnName, string newColumnName, string taskName)//готовый метод для смены колонки задания
         {
-            string oldPath = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), oldColumnName), taskName));
-            string newPath = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName), taskName));
+
+            string oldPath = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), oldColumnName), taskName+".json"));
+            string newPath = Path.Combine(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), newColumnName), taskName+".json"));
+            CurrentProject.Instance.currentProject.MoveTaskInCurrentProject(taskName,oldColumnName,newColumnName);
             File.Move(oldPath, newPath);
         }
         public bool DeleteTask(string taskName, string columnName)//готовый метод для удаления задачи(как в currentproject, так и в файлах)
         {
             CurrentProject.Instance.currentProject.DeleteTask(taskName, columnName);
-            File.Delete((Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), taskName)));
+            File.Delete(Path.Combine(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Columns"), columnName), taskName+".json"));
             return true;
         }
        

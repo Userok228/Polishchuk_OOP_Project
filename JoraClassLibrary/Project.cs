@@ -62,22 +62,35 @@ namespace JoraClassLibrary
         {
             return board.GetColumnsNames();
         }
+        internal List<Column> GetColumns()
+        {
+            return board._columns;
+        }
+        public string GetColumnNameByTask(string taskName)
+        {
+            return board.GetColumnNameByTask(taskName);
+        }
         internal void SetColumnsWithTasks(string name)
         {
             board.LoadListColumnsWithTasks_FromFile(name);
         }
-        internal bool AddNewTask(string columnName, Task task)
+        internal bool AddNewTask(string columnName, ProjectTask task)
         {
             if (board.AddNewTask(columnName, task)) return true;
             return false;
         }
-        internal void ChangeTask(string oldTaskName, string columnName, Task newTesk)
+        public void ChangeTask(string oldTaskName, string columnName, ProjectTask newTesk)
         {
             board.ChangeTask(oldTaskName, columnName, newTesk);
+
         }
-        internal Task GetTask(string taskName, string columnName)
+        internal ProjectTask GetTask(string taskName, string columnName)
         {
             return board.GetTask(taskName, columnName);
+        }
+        internal void MoveTaskInCurrentProject(string taskName, string oldColumn, string newColumn)
+        {
+            board.MoveTaskInCurrentProject(taskName, oldColumn, newColumn);
         }
         internal void DeleteTask(string taskName, string columnName)
         {

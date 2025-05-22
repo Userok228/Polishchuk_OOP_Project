@@ -46,7 +46,7 @@ namespace JoraClassLibrary
                 {
                     Column column = new Column();
                     column.Name = Path.GetFileName(d);
-                    column.RefreshColumnTasks(name);
+                    column.LoadColumnTasksFromFile(name, column.Name);
                     _columns.Add(column);
                 }
                 return true;
@@ -61,6 +61,20 @@ namespace JoraClassLibrary
                 names.Add(c.Name);
             }
             return names;
+        }
+        internal string GetColumnNameByTask(string taskName)
+        {
+            foreach(Column c in _columns)
+            {
+                string[] pathes = Directory.GetFiles(Path.Combine(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name),"Columns"), c.Name));
+               foreach (string n in pathes)
+                {
+                    string name = Path.GetFileName(n);
+                    if(name==taskName + ".json") return c.Name;
+                }
+            }
+            
+            return string.Empty;
         }
         public bool ChangeColumnName(string oldName, string newName)
         {
@@ -87,7 +101,7 @@ namespace JoraClassLibrary
             return false;
         }
 
-        public bool AddNewTask(string columnName, Task newTask)//????????
+        public bool AddNewTask(string columnName, ProjectTask newTask)
         {
             foreach(Column column in _columns)
             {
@@ -99,18 +113,19 @@ namespace JoraClassLibrary
             }
             return false;
         }
-        public Task GetTask(string taskName, string columnName)
+        public ProjectTask GetTask(string taskName, string columnName)
         {
             foreach(Column column in _columns)
             {
                 if (column.Name == columnName)
                 {
                    return column.GetTaskFromAColumn(taskName);
+
                 }
             }
             return null;
         }
-        public void ChangeTask(string taskName, string columnName, Task changedTask)
+        public void ChangeTask(string taskName, string columnName, ProjectTask changedTask)
         {
 
             foreach (Column column in _columns)
@@ -121,13 +136,35 @@ namespace JoraClassLibrary
                 }
             }
         }
+        public void MoveTaskInCurrentProject(string taskName, string oldColumn, string newColumn)
+        {
+            ProjectTask task = new ProjectTask();
+            for(int i=0;i<_columns.Count;i++)
+            {
+                if (oldColumn == _columns[i].Name)
+                {
+                    for(int j=0;j< _columns[i]._tasks.Count; j++)
+                    {
+                        if (_columns[i]._tasks[j].Name == taskName)
+                        {
+                            task = _columns[i]._tasks[j];
+                            _columns[i]._tasks.Remove(_columns[i]._tasks[j]);
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            _columns.FirstOrDefault(c => c.Name == newColumn)._tasks.Add(task);
+
+        }
         public void DeleteTask(string taskName, string columnName) 
         {
-            Task task;
+            ProjectTask task;
             foreach (var column in _columns)
             {
                 if (column.Name == columnName)
-                foreach (Task t in column._tasks)
+                foreach (ProjectTask t in column._tasks)
                 {              
                     if (t.Name == taskName)
                     {

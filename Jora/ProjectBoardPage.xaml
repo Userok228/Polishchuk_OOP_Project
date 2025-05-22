@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:Jora"
       mc:Ignorable="d"
       Title="ProjectBoardPage" Width="1440" Height="874">
-
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="ColumnChangeVisible"/>
+    </Page.Resources>
     <Grid Width="1440" Height="874" Background="White">
         <Button x:Name="btn_Summary" HorizontalContentAlignment="Left" Content="Summary" HorizontalAlignment="Left" Height="34" Margin="37,37,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" Click="btn_Summary_Click"/>
         <Button x:Name="btn_Board" HorizontalContentAlignment="Left" Content="Board" HorizontalAlignment="Left" Height="34" Margin="37,103,0,0" VerticalAlignment="Top" Width="191" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" FontWeight="Bold"/>
@@ -16,21 +18,41 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,155,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,86,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
         <Rectangle HorizontalAlignment="Left" Height="874" Stroke="Black" VerticalAlignment="Center" Width="300" Fill="#FFCBF1FF"/>
-        <ScrollViewer x:Name="scrllvwr_Tasks" HorizontalAlignment="Left" Height="716" Margin="305,37,0,0" VerticalAlignment="Top" Width="1103">
-            <StackPanel Orientation="Horizontal">
-                <Border Width="275" Margin="5" Background="#FFD9D9D9">
-                    <TextBlock Text="To do" FontFamily="Arial" FontSize="24" />
-                </Border>
-                <Border Width="275" Margin="5" Background="#FFD9D9D9">
-                    <TextBlock Text="In progress" FontSize="24" FontFamily="Arial" />
-                </Border>
-                <Border Width="275" Margin="5" Background="#FFD9D9D9">
-                    <TextBlock Text="Done" FontSize="24" FontFamily="Arial" />
-                </Border>
-            </StackPanel>
+        <ScrollViewer x:Name="scrllvwr_Columns" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Width="1120" Height="680" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,50,0,0" BorderBrush="#FF1B1B1B">
+            <ItemsControl x:Name="ColumnsC" Margin="10" ItemsSource="{Binding LoadingColumns}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1" Margin="5" Padding="5" Width="300"  AllowDrop="True" DragOver="Drag" Drop="Drop" Tag="{Binding}">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Name}" FontWeight="Normal" FontSize="24" Margin="0, 0, 0, 5"/>
+                                <Button x:Name="btn_ChangeColumn" Visibility="{Binding DataContext.lead,RelativeSource={RelativeSource AncestorType=Page}, Converter={StaticResource ColumnChangeVisible}}"  Content="Change column" Foreground="#FF6F6F6F" BorderBrush="LightGray" Background="#FFCBF1FF" FontWeight="Normal" FontSize="18" Margin="3, 3, 3, 3" Click="btn_ChangeColumn_Click" Tag="{Binding}"/>
+                                <ItemsControl ItemsSource="{Binding _tasks}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border BorderBrush="Black" BorderThickness="1" MouseMove="TaskMouseMove">
+                                                <StackPanel Orientation="Vertical" Background="#FFD6D6D6"  >
+                                                    <TextBlock Text="{Binding Name}" Width="280" ScrollViewer.HorizontalScrollBarVisibility="Auto" FontSize="22" FontFamily="Arial" HorizontalAlignment="Left" Margin="3 3 3 3" Background="White"/>
+                                                    <TextBlock x:Name="txtblk_TaskPriority" Text="{Binding Priority, StringFormat=Task Priority: {0}}" Margin="3 3 3 3" FontSize="20" FontFamily="Arial" Background="White"/>
+                                                    <Button Content="View details" Click="TaskInfo_Click" Tag="{Binding}" Width="280" FontSize="20" FontFamily="Arial" Background="#FFCBF1FF" HorizontalAlignment="Left" Margin="3 3 3 3"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <Button Content="Add task" Margin="5 5 5 5" Click="btn_AddTask_Click" Tag="{Binding}" BorderBrush="LightGray" Foreground="#FF6F6F6F" Background="#FFCBF1FF" FontSize="18" FontFamily="Arial" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </ScrollViewer>
-        <Rectangle x:Name="rctngl_AddColumn" HorizontalAlignment="Left" Height="59" Margin="1013,787,0,0" Stroke="Black" VerticalAlignment="Top" Width="297" Fill="#FFCBF1FF" RadiusX="10" RadiusY="10"/>
-        <Button x:Name="btn_AddColumn" Content="Add column" HorizontalAlignment="Left" Height="58" Margin="1013,787,0,0" VerticalAlignment="Top" Width="297" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="26" FontFamily="Arial" Click="btn_AddColumn_Click"/>
+        <Rectangle x:Name="rctngl_AddColumn" HorizontalAlignment="Left" Height="59" Margin="708,785,0,0" Stroke="Black" VerticalAlignment="Top" Width="298" Fill="#FFCBF1FF" RadiusX="10" RadiusY="10"/>
+        <Button x:Name="btn_AddColumn" Content="Add column" HorizontalAlignment="Left" Height="58" Margin="708,785,0,0" VerticalAlignment="Top" Width="298" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="26" FontFamily="Arial" Click="btn_AddColumn_Click"/>
         <TextBox x:Name="txtbx_NameAddColumn" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="49" Margin="526,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="662" BorderBrush="Black" Panel.ZIndex="1" FontSize="24" FontFamily="Arial" Visibility="Hidden"/>
         <Rectangle x:Name="rctngl_BackGroundAddColumn" HorizontalAlignment="Left" Height="472" Margin="404,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="906" Fill="#FFF0F0F0" RadiusX="10" RadiusY="10" Visibility="Hidden"/>
         <Rectangle x:Name="rctngl_DoneAddColumn" HorizontalAlignment="Left" Height="59" Margin="891,590,0,0" Stroke="Black" VerticalAlignment="Top" Width="297" Fill="#FFCBF1FF" RadiusX="10" RadiusY="10" Visibility="Hidden"/>
@@ -39,11 +61,9 @@
         <Button x:Name="btn_DoneAddColumn" Content="Add" HorizontalAlignment="Left" Height="59" Margin="891,590,0,0" VerticalAlignment="Top" Width="297" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btn_DoneAddColumn_Click" Visibility="Hidden"/>
         <Label x:Name="lbl_ErrorAddColumn" Content="The length of the column name must be greater than 0 and less than 40 characters" HorizontalAlignment="Left" Margin="464,487,0,0" VerticalAlignment="Top" Width="786" Height="47" FontSize="20" FontWeight="Bold" Foreground="#FFCA0000" Visibility="Hidden"/>
         <Label x:Name="lbl_NameAddColumn" Content="Enter a name for the new column" HorizontalAlignment="Left" Height="52" Margin="526,325,0,0" VerticalAlignment="Top" Width="382" FontSize="24" FontFamily="Arial" Visibility="Hidden"/>
-        <Button x:Name="btn_AddTask" Content="Add task" HorizontalAlignment="Left" Height="59" Margin="464,787,0,0" VerticalAlignment="Top" Width="297" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="26" FontFamily="Arial" Click="btn_AddTask_Click" Panel.ZIndex="2"/>
-        <Rectangle x:Name="rctngl_AddTask" HorizontalAlignment="Left" Height="60" Margin="464,785,0,0" Stroke="Black" VerticalAlignment="Top" Width="297" Fill="#FFCBF1FF" RadiusX="10" RadiusY="10" Panel.ZIndex="1"/>
         <Rectangle x:Name="rctngl_BackGroundAddTask" HorizontalAlignment="Left" Height="578" Margin="404,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="906" Fill="#FFF0F0F0" RadiusX="10" RadiusY="10" Visibility="Hidden"/>
         <Label x:Name="lbl_NameAddTask" Content="Enter a name for the new task:" HorizontalAlignment="Left" Height="52" Margin="464,165,0,0" VerticalAlignment="Top" Width="382" FontSize="24" FontFamily="Arial" Visibility="Hidden"/>
-        <Label x:Name="lbl_ErrorAddTask" Content="" HorizontalAlignment="Left" Margin="476,510,0,0" VerticalAlignment="Top" Width="786" Height="48" FontSize="20" FontWeight="Bold" Foreground="#FFCA0000" Visibility="Hidden"/>
+        <Label x:Name="lbl_ErrorAddTask" Content="" HorizontalAlignment="Left" Margin="476,510,0,0" VerticalAlignment="Top" Width="792" Height="48" FontSize="18" FontWeight="Bold" Foreground="#FFCA0000" Visibility="Hidden"/>
         <Button x:Name="btn_DoneAddTask" Content="Add" HorizontalAlignment="Left" Height="60" Margin="953,620,0,0" VerticalAlignment="Top" Width="297" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Arial" FontSize="24" FontWeight="Bold" Click="btn_DoneAddTask_Click" Panel.ZIndex="1" RenderTransformOrigin="0.508,-0.233" Visibility="Hidden"/>
         <Rectangle x:Name="rctngl_DoneAddTask" Stroke="Black" Margin="953,620,190,196" Fill="#FFCBF1FF" Visibility="Hidden"/>
         <TextBox x:Name="txtbx_NameAddTask" TextWrapping="Wrap" Margin="476,216,190,613" FontFamily="Arial" FontSize="22" Visibility="Hidden"/>

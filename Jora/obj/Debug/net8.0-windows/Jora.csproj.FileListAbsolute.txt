@@ -41,3 +41,7 @@ C:\Users\makro\source\repos2\OOP\Jora\Jora\bin\Debug\net8.0-windows\JoraClassLib
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\Jora.csproj.AssemblyReference.cache
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\Jora.csproj.CopyComplete
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\Jora.sourcelink.json
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\TaskInfoWindow.g.cs
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\TaskInfoWindow.baml
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeColumnWindow.g.cs
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeColumnWindow.baml
