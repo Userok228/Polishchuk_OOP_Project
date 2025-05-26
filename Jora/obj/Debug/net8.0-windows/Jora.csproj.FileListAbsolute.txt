@@ -45,3 +45,7 @@ C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\TaskInfoWind
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\TaskInfoWindow.baml
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeColumnWindow.g.cs
 C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeColumnWindow.baml
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeUsersWindow.g.cs
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\ChangeUsersWindow.baml
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\InvitingWindow.g.cs
+C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\InvitingWindow.baml

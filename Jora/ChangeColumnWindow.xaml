@@ -9,7 +9,6 @@
     <Grid Width="600" Height="400">
         <Label Content="Column name:" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="49" Margin="20,20,0,0" VerticalAlignment="Top" Width="179" FontSize="24" FontFamily="Arial"/>
         <TextBox x:Name="txtbx_Name" VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="40" Margin="0,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="560" FontFamily="Arial" FontSize="24"/>
-        <Button x:Name="btn_CreateNewTask" Content="Create new task" HorizontalAlignment="Center" Height="70" Margin="0,200,0,0" VerticalAlignment="Top" Width="560" FontSize="24" FontFamily="Arial" Background="#FFCBF1FF" Click="btn_CreateNewTask_Click"/>
         <Button x:Name="btn_Save" Content="Save changes" HorizontalAlignment="Left" Height="70" Margin="20,292,0,0" VerticalAlignment="Top" Width="262" FontSize="24" FontFamily="Arial" Background="#FFCBF1FF" Click="btn_Save_Click"/>
         <Label x:Name="lbl_Error" Content="The length of the column name must be between 0 and 40&#xD;&#xA;characters and not be repeated with the names of other columns." VerticalContentAlignment="Center" HorizontalAlignment="Center" Height="76" Margin="0,109,0,0" VerticalAlignment="Top" Width="580" FontSize="20" FontFamily="Arial" Foreground="Red" Visibility="Hidden"/>
         <Button x:Name="btn_Delete" Content="Delete column" HorizontalAlignment="Left" Height="70" Margin="318,292,0,0" VerticalAlignment="Top" Width="262" FontSize="24" FontFamily="Arial" Background="#FFCBF1FF" Click="btn_Delete_Click" Foreground="Red"/>

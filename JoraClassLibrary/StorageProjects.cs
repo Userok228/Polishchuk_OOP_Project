@@ -54,7 +54,7 @@ namespace JoraClassLibrary
                 newProj.SetProjectInfo(description, deadline);
                 string projectInfoJson = JsonSerializer.Serialize(newProj.GetProjectInfo());
                 File.WriteAllText(Path.Combine(Path.Combine(AllProjectsPath, name), "ProjectInfo.json"), projectInfoJson);
-                newProj.AddUserToProject(login, RoleEnum.Leader);
+                newProj.AddUserToProject(CurrentUser.Instance.currentUser.login, CurrentUser.Instance.currentUser.username, RoleEnum.Leader);
                 string teamJson = JsonSerializer.Serialize(newProj.GetTeam);
                 File.WriteAllText(Path.Combine(Path.Combine(AllProjectsPath, name), "Team.json"), teamJson);
                 CurrentUser.Instance.currentUser.AddProjectByNameToUsersProjectNamesList(newProj.Name);
@@ -201,7 +201,7 @@ namespace JoraClassLibrary
         {
             foreach (ProjectUser u in CurrentProject.Instance.currentProject.GetTeam)
             {
-                if (CurrentUser.Instance.currentUser.login == u.userLogin)
+                if (CurrentUser.Instance.currentUser.login == u.login)
                     return u.role;
             }
 
@@ -212,7 +212,7 @@ namespace JoraClassLibrary
         {
             if (StorageUsers.Instance.FindUser(login)==null)
                 return false;
-            CurrentProject.Instance.currentProject.AddUserToProject(login, role);
+            CurrentProject.Instance.currentProject.AddUserToProject(login, StorageUsers.Instance.FindUser(login).username, role);
             File.WriteAllText(Path.Combine(Path.Combine(AllProjectsPath, CurrentProject.Instance.currentProject.Name), "Team.json"), JsonSerializer.Serialize(CurrentProject.Instance.currentProject.GetTeam));
             return true;
         }
@@ -223,6 +223,18 @@ namespace JoraClassLibrary
             if (StorageUsers.Instance.RemoveCurrentProjectFromUsersProjectList(login))
             return true;
             
+            return false;
+        }
+
+        public bool UserNotRemovedFromProjectCheck(string projName)
+        {
+            string usersJson = File.ReadAllText(Path.Combine(Path.Combine(AllProjectsPath, projName), "Team.json"));
+            List<ProjectUser> team= JsonSerializer.Deserialize<List<ProjectUser>>(usersJson);
+            foreach(ProjectUser u in team)
+            {
+                if (u.login == CurrentUser.Instance.currentUser.login)
+                    return true;
+            }
             return false;
         }
 

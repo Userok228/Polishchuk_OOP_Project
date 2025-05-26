@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\makro\source\repos2\OOP\Jora\Jora\App.xaml
-12338491573
+14-248738850
 
-15-548421141
+17-858466236
 1991860053781
-ChangeColumnWindow.xaml;CreationProjectWindow.xaml;LogInPage.xaml;MainWindow.xaml;ProjectBoardPage.xaml;ProjectChatPage.xaml;ProjectPage.xaml;ProjectSelectionPage_AllProjects.xaml;ProjectSummaryPage.xaml;ProjectTeamPage.xaml;SignInPage.xaml;TaskInfoWindow.xaml;
+ChangeColumnWindow.xaml;ChangeUsersWindow.xaml;CreationProjectWindow.xaml;InvitingWindow.xaml;LogInPage.xaml;MainWindow.xaml;ProjectBoardPage.xaml;ProjectChatPage.xaml;ProjectPage.xaml;ProjectSelectionPage_AllProjects.xaml;ProjectSummaryPage.xaml;ProjectTeamPage.xaml;SignInPage.xaml;TaskInfoWindow.xaml;
 
 False
 

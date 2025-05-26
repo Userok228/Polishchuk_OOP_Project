@@ -29,7 +29,7 @@
         <Label Content="Don’t have an account on our website?" HorizontalAlignment="Left" Margin="75,932,0,0" VerticalAlignment="Top" FontFamily="Arial" FontSize="24" Width="426"/>
         <Label Content="Enter your login:" HorizontalAlignment="Left" Margin="60,511,0,0" VerticalAlignment="Top" Width="544" FontFamily="Arial" FontSize="32"/>
         <Label Content="Enter your password:" HorizontalAlignment="Left" Margin="60,663,0,0" VerticalAlignment="Top" Width="544" FontFamily="Arial" FontSize="32"/>
-        <PasswordBox x:Name="psswrdbx_Password" HorizontalAlignment="Left" Margin="58,710,0,0" VerticalAlignment="Top" Width="544" Height="70" Background="#FFDEDEDE" FontSize="32"/>
+        <PasswordBox x:Name="psswrdbx_Password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="58,710,0,0" VerticalAlignment="Top" Width="544" Height="70" Background="#FFDEDEDE" FontSize="32"/>
 
     </Grid>
 </Page>

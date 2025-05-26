@@ -17,6 +17,37 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,155,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="37,86,0,0" VerticalAlignment="Top" Width="224" Panel.ZIndex="1"/>
         <Rectangle HorizontalAlignment="Left" Height="874" Stroke="Black" VerticalAlignment="Top" Width="300" Fill="#FFCBF1FF"/>
-
+        <Button x:Name="btn_Invite" Content="Invite member" HorizontalAlignment="Left" Height="45" Margin="758,797,0,0" VerticalAlignment="Top" Width="224" Background="#FFCBF1FF" FontSize="24" FontFamily="Arial" Click="btn_Invite_Click"/>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Width="480" Height="654" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,71,0,0">
+            <ItemsControl Name="ProjectUsers">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Username: " FontSize="22" FontFamily="Arial"/>
+                                <TextBlock Text="{Binding username}" FontWeight="Bold" Width="210" FontSize="22" FontFamily="Arial"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Role:" Width="60" FontFamily="Arial" FontSize="22"/>
+                                <TextBlock Text="{Binding role}" Width="100" FontFamily="Arial" FontSize="22"/>
+                            </StackPanel>
+                            <Button x:Name="btn_UserInfo" Tag ="{Binding}" Content="UserInfo" Width="470" FontSize="22" FontFamily="Arial"  Click="btn_UserInfo_Click"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+        <Rectangle HorizontalAlignment="Left" Height="716" Margin="361,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="482"/>
+        <Rectangle HorizontalAlignment="Left" Height="716" Margin="898,31,0,0" Stroke="Black" VerticalAlignment="Top" Width="482"/>
+        <Label Content="Project members" HorizontalAlignment="Left" Margin="361,37,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Arial"/>
+        <Label x:Name="lbl_UserName" Content="Username:" HorizontalAlignment="Left" Margin="906,42,0,0" VerticalAlignment="Top" FontSize="24" Visibility="Hidden"/>
+        <TextBox x:Name="txtbx_UserName" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="40" Margin="906,93,0,0" VerticalAlignment="Top" Width="466" FontSize="24" FontFamily="Arial" Visibility="Hidden" IsReadOnly="True"/>
+        <Label x:Name="lbl_Contacts" Content="Contact:" HorizontalAlignment="Left" Margin="906,345,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.433,1.956" Visibility="Hidden"/>
+        <TextBox x:Name="txtbx_Contact" HorizontalAlignment="Left" Height="61" Margin="906,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="466" FontSize="24" FontFamily="Arial" Visibility="Hidden" IsReadOnly="True"/>
+        <Button x:Name="btn_RemoveUser" Content="Remove user from Project" HorizontalAlignment="Left" Height="45" Margin="943,680,0,0" VerticalAlignment="Top" Width="392" Background="#FFCBF1FF" FontSize="24" FontFamily="Arial" Foreground="Red" Visibility="Hidden" Click="btn_RemoveUser_Click"/>
+        <Label x:Name="lbl_Login" Content="Login:" HorizontalAlignment="Left" Margin="906,244,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.433,1.956" Visibility="Hidden"/>
+        <TextBox x:Name="txtbx_Login" HorizontalAlignment="Left" Height="40" Margin="906,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="466" FontSize="24" FontFamily="Arial" Visibility="Hidden" IsReadOnly="True"/>
+        <Label x:Name="lbl_Role" Content="Role:" HorizontalAlignment="Left" Margin="906,143,0,0" VerticalAlignment="Top" FontSize="24" RenderTransformOrigin="0.433,1.956" Visibility="Hidden"/>
+        <TextBox x:Name="txtbx_Role" HorizontalAlignment="Left" Height="40" Margin="906,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="466" FontSize="24" FontFamily="Arial" Visibility="Hidden" IsReadOnlyCaretVisible="True"/>
     </Grid>
 </Page>

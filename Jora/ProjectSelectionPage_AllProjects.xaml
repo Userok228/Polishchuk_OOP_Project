@@ -19,12 +19,12 @@
         <Button x:Name="btn_OtherPeoplesProjects" Content="Other people`s &#xD;&#xA;projects" HorizontalContentAlignment="Left" HorizontalAlignment="Left" Height="61" Margin="38,332,0,0" VerticalAlignment="Top" Width="224" FontSize="24" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.527,1.064"/>
         <Button x:Name="btn_Projects" Content="Projects" HorizontalAlignment="Left" Margin="210,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}"/>
         <Button x:Name="btn_CreateNewProject" Content="Create new project" HorizontalAlignment="Left" Margin="393,55,0,0" VerticalAlignment="Top" FontSize="32" FontFamily="Arial" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_CreateNewProject_Click"/>
-        <Button x:Name="btn_Profile" Content="Login" HorizontalAlignment="Left" Height="90" Margin="1318,30,0,0" VerticalAlignment="Top" Width="90" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Background="White" BorderBrush="Black">
+        <Button x:Name="btn_Profile" Content="Login" HorizontalAlignment="Left" Height="90" Margin="1318,30,0,0" VerticalAlignment="Top" Width="90" FontSize="32" FontFamily="Arial" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Background="White" BorderBrush="Black" Click="btn_Profile_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="#FFFFFF" CornerRadius="45" BorderBrush="Black" BorderThickness="1">
                         <Grid>
-                            <Image Source="/ImagesIcons/Person_Icon.png" Width="64" Height="64"/>
+                            <Image Source="/Images/Person_Icon.png" Width="64" Height="64"/>
 
                         </Grid>
                     </Border>

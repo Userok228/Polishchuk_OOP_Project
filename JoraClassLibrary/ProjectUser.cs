@@ -8,18 +8,22 @@ namespace JoraClassLibrary
 {
     public class ProjectUser
     {
-        public string userLogin { get; set; }
+        public string login { get; set; }
+        public string username { get; set; }
         public RoleEnum role { get; set; }
 
+
+
         public ProjectUser() { }
-        public ProjectUser(string user, RoleEnum role)
+        public ProjectUser(string login, string name, RoleEnum role)
         {
-            this.userLogin = user;
+            this.login = login;
+            this.username = name;
             this.role = role;
         }
         public string GetLogin()
         {
-            return userLogin;
+            return login;
         }
     }
 }

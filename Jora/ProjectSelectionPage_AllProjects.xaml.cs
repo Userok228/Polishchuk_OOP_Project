@@ -28,6 +28,7 @@ namespace Jora
     {
         public static CreationProjectWindow creationwindow;
         private static string selectedProject;
+        public static ChangeUsersWindow changeuserswindow;
 
         public ObservableCollection <string> ProjectNames { get; set; }
         public ProjectSelectionPage_AllProjects()
@@ -107,6 +108,23 @@ namespace Jora
         {
             StorageProjects.Instance.OpenProject(selectedProject);
             NavigationService.Navigate(new ProjectPage());
+        }
+
+        private void btn_Profile_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var use = button?.Tag as User;
+            if (use != null && changeuserswindow == null)
+            {
+                changeuserswindow = new ChangeUsersWindow();
+                changeuserswindow.Closed += (s, args) =>
+                {
+                    NavigationService.Navigate(new ProjectBoardPage());
+                    changeuserswindow = null;
+                };
+                changeuserswindow.Show();
+            }
+            else changeuserswindow.Activate();
         }
     }
 }

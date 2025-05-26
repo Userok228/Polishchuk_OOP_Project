@@ -10,7 +10,13 @@
     <Compile Update="ChangeColumnWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="ChangeUsersWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CreationProjectWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="InvitingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LogInPage.xaml.cs">
@@ -45,7 +51,13 @@
     <Page Update="ChangeColumnWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="ChangeUsersWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="CreationProjectWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="InvitingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="LogInPage.xaml">

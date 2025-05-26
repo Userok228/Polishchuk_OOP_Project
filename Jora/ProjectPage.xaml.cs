@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JoraClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace Jora
         {
             InitializeComponent();
             InProjectFrame.Content = new ProjectSummaryPage();
+            lbl_YourRole.Content = "Your role in this project: " + StorageProjects.Instance.GetCurrentRole(); 
         }
         private void btn_Projects_Click(object sender, RoutedEventArgs e)
         {

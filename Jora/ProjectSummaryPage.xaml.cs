@@ -31,7 +31,7 @@ namespace Jora
             Columns = StorageProjects.Instance.GetSummaryInfo();
             if (currentRole==RoleEnum.Leader)
             {
-                txtbx_Adver.IsEnabled = true;
+                txtbx_Adver.IsReadOnly = false;
             }
             txtbx_Adver.Text = StorageProjects.Instance.GetAdver();
             btn_SaveAdver.Visibility = Visibility.Hidden;

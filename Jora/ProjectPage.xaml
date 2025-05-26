@@ -28,6 +28,7 @@
 
         </Button>
         <Frame x:Name="InProjectFrame" Content="" HorizontalAlignment="Center" Height="874" Margin="0,150,0,0" VerticalAlignment="Top" Width="1440" NavigationUIVisibility="Hidden"/>
+        <Label x:Name="lbl_YourRole" Content="Your role in this project:" HorizontalAlignment="Left" Height="41" Margin="966,58,0,0" VerticalAlignment="Top" Width="347" FontSize="24" FontFamily="Arial"/>
 
     </Grid>
 </Page>

@@ -10,7 +10,7 @@ namespace JoraClassLibrary
     {
             string name;
             ProjectInfo info = new ProjectInfo();
-            List<ProjectUser> _team = new List<ProjectUser>();
+            public List<ProjectUser> _team = new List<ProjectUser>();
             Board board = new Board();
         public string Name
         {
@@ -96,11 +96,11 @@ namespace JoraClassLibrary
         {
             board.DeleteTask(taskName, columnName);
         }
-        public bool AddUserToProject(string login, RoleEnum role) 
+        public bool AddUserToProject(string login, string username, RoleEnum role) 
         {
                 if (StorageUsers.Instance.FindUser(login) != null)
                 {
-                    ProjectUser newuser = new ProjectUser(login, role);
+                    ProjectUser newuser = new ProjectUser(login, username, role);
                     _team.Add(newuser);
                     return true;
                 }
@@ -109,11 +109,15 @@ namespace JoraClassLibrary
         } 
         public void RemoveUserFromProject(string login)
         {
-            foreach(ProjectUser u in _team) 
+            
+            for(int i=0; i<_team.Count; i++)
             {
-            if(u.GetLogin() == login)
-            _team.Remove(u);  
+                if (_team[i].GetLogin() == login)
+                { _team.Remove(_team[i]);
+                    return;
+                }
             }
+
         }
 
     }

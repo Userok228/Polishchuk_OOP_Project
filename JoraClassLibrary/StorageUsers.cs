@@ -168,7 +168,7 @@ namespace JoraClassLibrary
             File.WriteAllText(usersPath, updatedUsersJ);
         }
 
-        public bool AddProjectToUser(string log, RoleEnum role) 
+        public bool AddProjectToUser(string log) 
         {
             if (!firstRefreshListUsers)
             {
@@ -182,7 +182,6 @@ namespace JoraClassLibrary
             _users.RemoveAll(u=>u.login==log);
             _users.Add(found);
             RefreshJsonUsers();
-            CurrentProject.Instance.currentProject.AddUserToProject(log, role);
             return true;
         }
 
@@ -193,7 +192,7 @@ namespace JoraClassLibrary
             List<string> Name = new List<string>();
             for(int i=0; i < CurrentUser.Instance.currentUser.GetProjectNames().Count; i++)
             {
-                if (Directory.Exists(Path.Combine(AllProjectsPath, CurrentUser.Instance.currentUser.GetProjectNames()[i])))
+                if (Directory.Exists(Path.Combine(AllProjectsPath, CurrentUser.Instance.currentUser.GetProjectNames()[i]))&&StorageProjects.Instance.UserNotRemovedFromProjectCheck(CurrentUser.Instance.currentUser.GetProjectNames()[i]))
                 {
                     Name.Add(CurrentUser.Instance.currentUser.GetProjectNames()[i]);
                 }
@@ -215,7 +214,7 @@ namespace JoraClassLibrary
                 foreach (ProjectUser user in team)
                 {
                     if (user.role == RoleEnum.Leader)
-                        leadproj.Add(user.userLogin);
+                        leadproj.Add(user.login);
                 }
             }
             return leadproj;
