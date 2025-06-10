@@ -1,17 +1,18 @@
 ﻿
 
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ChangeColumnWindow.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ChangeUsersWindow.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\CreationProjectWindow.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\InvitingWindow.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\LogInPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\MainWindow.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectBoardPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectChatPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectSelectionPage_AllProjects.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectSummaryPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\ProjectTeamPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\SignInPage.xaml;;
-FC:\Users\makro\source\repos2\OOP\Jora\Jora\TaskInfoWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\LogInPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectBoardPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectChatPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectSelectionPage_AllProjects.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectSummaryPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\ProjectTeamPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Pages\SignInPage.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\ChangeColumnWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\ChangeUsersWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\ChangingProjectWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\CreationProjectWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\InvitingWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\MainWindow.xaml;;
+FC:\Users\makro\source\repos2\OOP\Jora\Jora\Windows\TaskInfoWindow.xaml;;
 

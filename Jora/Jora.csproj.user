@@ -7,87 +7,93 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="ChangeColumnWindow.xaml.cs">
+    <Compile Update="Windows\ChangeColumnWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ChangeUsersWindow.xaml.cs">
+    <Compile Update="Windows\ChangeUsersWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="CreationProjectWindow.xaml.cs">
+    <Compile Update="Windows\ChangingProjectWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="InvitingWindow.xaml.cs">
+    <Compile Update="Windows\CreationProjectWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="LogInPage.xaml.cs">
+    <Compile Update="Windows\InvitingWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectBoardPage.xaml.cs">
+    <Compile Update="Pages\LogInPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectChatPage.xaml.cs">
+    <Compile Update="Pages\ProjectBoardPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectSelectionPage_AllProjects.xaml.cs">
+    <Compile Update="Pages\ProjectChatPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectSummaryPage.xaml.cs">
+    <Compile Update="Pages\ProjectSelectionPage_AllProjects.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectTeamPage.xaml.cs">
+    <Compile Update="Pages\ProjectSummaryPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SignInPage.xaml.cs">
+    <Compile Update="Pages\ProjectTeamPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ProjectPage.xaml.cs">
+    <Compile Update="Pages\SignInPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TaskInfoWindow.xaml.cs">
+    <Compile Update="Pages\ProjectPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\TaskInfoWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="ChangeColumnWindow.xaml">
+    <Page Update="Windows\ChangeColumnWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ChangeUsersWindow.xaml">
+    <Page Update="Windows\ChangeUsersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="CreationProjectWindow.xaml">
+    <Page Update="Windows\ChangingProjectWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="InvitingWindow.xaml">
+    <Page Update="Windows\CreationProjectWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="LogInPage.xaml">
+    <Page Update="Windows\InvitingWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Pages\LogInPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectBoardPage.xaml">
+    <Page Update="Windows\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectChatPage.xaml">
+    <Page Update="Pages\ProjectBoardPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectSelectionPage_AllProjects.xaml">
+    <Page Update="Pages\ProjectChatPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectSummaryPage.xaml">
+    <Page Update="Pages\ProjectSelectionPage_AllProjects.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectTeamPage.xaml">
+    <Page Update="Pages\ProjectSummaryPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SignInPage.xaml">
+    <Page Update="Pages\ProjectTeamPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ProjectPage.xaml">
+    <Page Update="Pages\SignInPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="TaskInfoWindow.xaml">
+    <Page Update="Pages\ProjectPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\TaskInfoWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
