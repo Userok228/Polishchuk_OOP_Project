@@ -83,7 +83,7 @@ namespace JoraClassLibrary.ProjectComponents
             board.ChangeTask(oldTaskName, columnName, newTesk);
 
         }
-        internal ProjectTask GetTask(string taskName, string columnName)
+        public ProjectTask GetTask(string taskName, string columnName)
         {
             return board.GetTask(taskName, columnName);
         }

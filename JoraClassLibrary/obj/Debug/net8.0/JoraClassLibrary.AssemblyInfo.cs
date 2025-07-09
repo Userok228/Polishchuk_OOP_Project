@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JoraClassLibrary")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e9ad4ad29d2e472870e0c6188720736204fdb11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c09698b5d0924c46717450f8cfa9202295fecd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("JoraClassLibrary")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JoraClassLibrary")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

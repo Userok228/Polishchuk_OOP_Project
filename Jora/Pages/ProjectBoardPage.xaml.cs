@@ -27,10 +27,10 @@ namespace Jora
     public partial class ProjectBoardPage : Page
     {
         
-        public RoleEnum currentrole;
-        public static TaskInfoWindow taskwindow;
-        public static ChangeColumnWindow changecolumn;
-        public static string currentcolumnname;
+        private RoleEnum currentrole;
+        private TaskInfoWindow taskwindow;
+        private ChangeColumnWindow changecolumn;
+        private string currentcolumnname;
         public List <Column> LoadingColumns { get; set; }
         public ProjectBoardPage()
         {
@@ -80,7 +80,6 @@ namespace Jora
             }
         }
 
-        // Позволяет сброс (визуально и логически)
         private void Drag(object sender, DragEventArgs e)
         {
             if (currentrole != RoleEnum.Guest)
@@ -97,8 +96,6 @@ namespace Jora
                 e.Handled = true;
             }
         }
-
-        // Обработка сброса
         private void Drop(object sender, DragEventArgs e)
         {
                 if (e.Data.GetDataPresent(typeof(ProjectTask)))

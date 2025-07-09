@@ -22,7 +22,7 @@ namespace Jora
     /// </summary>
     public partial class ChangeColumnWindow : Window
     {
-        string oldname;
+        private string oldname;
         public ChangeColumnWindow(string oldColumnName)
         {
             InitializeComponent();
@@ -50,10 +50,6 @@ namespace Jora
                 Close();
             }
         }
-
-        private void btn_CreateNewTask_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

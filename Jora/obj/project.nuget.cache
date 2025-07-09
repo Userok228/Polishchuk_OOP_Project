@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "2gxhCApmrBYwHvMrUdTyjFCBFSmbVa9jM6gQpSnm+wMA+qojLmLVDOrFijwapyMfVqlZNRsl6eRFTjkGZNLdtw==",
+  "dgSpecHash": "grh1CRdkzFk=",
   "success": true,
   "projectFilePath": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Jora.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.applicationinsights\\2.23.0\\microsoft.applicationinsights.2.23.0.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testing.extensions.telemetry\\1.7.1\\microsoft.testing.extensions.telemetry.1.7.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testing.extensions.trxreport.abstractions\\1.7.1\\microsoft.testing.extensions.trxreport.abstractions.1.7.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testing.extensions.vstestbridge\\1.7.1\\microsoft.testing.extensions.vstestbridge.1.7.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testing.platform\\1.7.1\\microsoft.testing.platform.1.7.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testing.platform.msbuild\\1.7.1\\microsoft.testing.platform.msbuild.1.7.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testplatform.adapterutilities\\17.13.0\\microsoft.testplatform.adapterutilities.17.13.0.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.13.0\\microsoft.testplatform.objectmodel.17.13.0.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\mstest.analyzers\\3.9.1\\mstest.analyzers.3.9.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\mstest.testadapter\\3.9.1\\mstest.testadapter.3.9.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\mstest.testframework\\3.9.1\\mstest.testframework.3.9.1.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
+    "C:\\Users\\makro\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

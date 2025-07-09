@@ -24,8 +24,8 @@ namespace Jora
     /// </summary>
     public partial class ProjectPage : Page
     {
-        public static ChangeUsersWindow changeuserswindow;
-        ChangingProjectWindow changingprojectwindow;
+        private ChangeUsersWindow changeuserswindow;
+        private ChangingProjectWindow changingprojectwindow;
         public ProjectPage()
         {
             InitializeComponent();

@@ -23,8 +23,8 @@ namespace Jora
     /// </summary>
     public partial class ProjectTeamPage : Page
     {
-        public static InvitingWindow invitingwindow;
-        List<ProjectUser> ProjectUsersList { get; set; }
+        private InvitingWindow invitingwindow;
+        private List<ProjectUser> ProjectUsersList { get; set; }
         public ProjectTeamPage()
         {
             InitializeComponent();
