@@ -8,13 +8,13 @@ C:\Users\makro\source\repos2\OOP\Jora\Jora\obj\Debug\net8.0-windows\
 Jora
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\makro\source\repos2\OOP\Jora\Jora\App.xaml
 15-1950778268
 
 20775098950
-1991860053781
+211-1163093529
 Pages\LogInPage.xaml;Pages\ProjectBoardPage.xaml;Pages\ProjectChatPage.xaml;Pages\ProjectPage.xaml;Pages\ProjectSelectionPage_AllProjects.xaml;Pages\ProjectSummaryPage.xaml;Pages\ProjectTeamPage.xaml;Pages\SignInPage.xaml;Windows\ChangeColumnWindow.xaml;Windows\ChangeUsersWindow.xaml;Windows\ChangingProjectWindow.xaml;Windows\CreationProjectWindow.xaml;Windows\InvitingWindow.xaml;Windows\MainWindow.xaml;Windows\TaskInfoWindow.xaml;
 
-True
+False
 

@@ -29,9 +29,9 @@ namespace Jora
     /// </summary>
     public partial class ProjectSelectionPage_AllProjects : Page
     {
-        public static CreationProjectWindow creationwindow;
+        private static CreationProjectWindow creationwindow;
         private static string selectedProject;
-        public static ChangeUsersWindow changeuserswindow;
+        private static ChangeUsersWindow changeuserswindow;
 
         public ObservableCollection <string> ProjectNames { get; set; }
         public ProjectSelectionPage_AllProjects()

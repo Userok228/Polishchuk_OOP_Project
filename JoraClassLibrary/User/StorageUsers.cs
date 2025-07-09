@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
+//using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml.Linq;
+using System.Text.Json;
 using JoraClassLibrary.ProjectComponents;
 using JoraClassLibrary.Enums;
 
@@ -44,6 +45,7 @@ namespace JoraClassLibrary.User.User
             if (JsonSerializer.Deserialize<List<User>>(json) != null)
             {
                 _users = JsonSerializer.Deserialize<List<User>>(json);
+
             }
             else _users = new List<User>();
         }
@@ -62,25 +64,29 @@ namespace JoraClassLibrary.User.User
                     Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Jora"));
                 }
                 using (File.Create(usersPath)) { };
+                _users = new List<User>();
                 fileJustCreated = true;
             }
-            if (!fileJustCreated)
-                RefreshListUsers();
+           if (!fileJustCreated)
+              RefreshListUsers();
 
             if (fileJustCreated || Instance.FindUser(login) == null)
                 if (password == repeatPassword)
                 {
                     if (email != null)
                     {
+                        if(!(email.Contains('@') && email.Length >= 3 && email.Length <= 90)) return false;
+
                         foreach (User u in _users)
                         {
                             if (u.email == email) return false;
                         }
-                        if (email.Length == 0 || email.Length > 90) return false;
+                       
                     }
                     if (login.Length < 3 || login.Length > 32)
                         return false;
-                    if (username.Length<3|| username.Length>40)
+                    if (username.Length < 3 || username.Length > 40)
+                        return false;
                     if (password.Length < 8 || password.Length > 32)
                         return false;
                     if (Instance.SaveNewUserInFile(new User(login, password, username, email)))
@@ -92,7 +98,7 @@ namespace JoraClassLibrary.User.User
         public bool SaveNewUserInFile(User user)
         {
             if (user == null) return false;
-
+            if(_users.Count!=0)
             if (_users.Any(u => u.login == user.login))
             {
                 return false;
@@ -110,6 +116,7 @@ namespace JoraClassLibrary.User.User
         {
             if (File.Exists(usersPath))
             {
+
                 if (UserVerification(login, password))
                 {
                     CurrentUser.Instance.SetCurrentUser(FindUser(login));
@@ -151,23 +158,46 @@ namespace JoraClassLibrary.User.User
 
         public bool ChangeCurrentUser(string newUsername,string oldPassword, string newPassword, string newEmail, bool pass)//финальный метод для смены и сохранения характеристик (типо имени или newEmail) пользователя
         {
+            bool password = false;
+            bool username = false;
+            bool email = false;
+            if(newUsername!=CurrentUser.Instance.currentUser.username) username = true;
+            if(newEmail!=CurrentUser.Instance.currentUser.email)email = true;
+
             if (pass)
             {
+                if (newPassword != oldPassword) password = true;
                 if (oldPassword == CurrentUser.Instance.currentUser.password)
                 {
-                    if(newPassword.Length>8&&newPassword.Length<32)
+                    if(newPassword.Length>8&&newPassword.Length<32&&password)
                     CurrentUser.Instance.currentUser.ChangePassword(newPassword);
                     else return false;
                 }
                 else return false;
+                
             }
-            if (newUsername != CurrentUser.Instance.currentUser.username)
+            if (!(newEmail == null || newEmail == ""))
+                if (newEmail != CurrentUser.Instance.currentUser.email && !(newEmail.Contains('@') && newEmail.Length >= 3 && newEmail.Length <= 90))
+                     return false;
+            if(username)
+            if (!(newUsername.Length != 0 && newUsername.Length <= 40))
+                 return false;
+            if(username)
                 CurrentUser.Instance.currentUser.ChangeUserName(newUsername);
-            if(newEmail != CurrentUser.Instance.currentUser.email)
-                CurrentUser.Instance.currentUser.ChangeEmail(newEmail);
-            
+            if(email)
+            if (newEmail == null || newEmail == "")
+                CurrentUser.Instance.currentUser.ChangeEmail(null);
+            else
+            {
+                    CurrentUser.Instance.currentUser.ChangeEmail(newEmail);
+            }
+
+            if (password || username || email)
+            {
                 UpdateCurrentUser();
                 return true;
+            }
+            else return false;
 
         }
         public void UpdateCurrentUser()//перезаписывает/обновляет current пользователя в файле
@@ -253,6 +283,7 @@ namespace JoraClassLibrary.User.User
 
         public bool RemoveCurrentProjectFromUsersProjectList(string login)
         {
+            if(CurrentUser.Instance.currentUser.login!=login)
             foreach (User u in _users)
             {
                 if (u.login == login)
@@ -262,6 +293,7 @@ namespace JoraClassLibrary.User.User
                     return true;
                 }
             }
+            
             return false;
 
         }

@@ -57,14 +57,14 @@ namespace Jora
                     txtblk_FormatErrors.Text = "The deadline date was entered incorrectly (True format: dd.MM.yyyy). Not earlier than today's date, and not later than 31.12.9999";
                     return;
                 }
-                if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, dead, CurrentUser.Instance.currentUser.login))
+                if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, dead))
                 {
                     txtblk_FormatErrors.Text = "Thomething went erong :/";
                     return;
                 }
             }
             else
-              if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, null, CurrentUser.Instance.currentUser.login))
+              if (!StorageProjects.Instance.CreateNewProject(txtbx_Name.Text, txtbx_Description.Text, null))
               {   
                   txtblk_FormatErrors.Text = "Thomething went erong :/";
                   return;

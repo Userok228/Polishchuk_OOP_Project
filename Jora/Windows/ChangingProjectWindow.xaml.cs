@@ -24,7 +24,7 @@ namespace Jora
     {
         public bool IsCanceled { get; private set; } = false;
         public bool IsDelete { get; private set; } =false;
-        ProjectInfo projectInfo = StorageProjects.Instance.GetProjectInfoByProjectName(CurrentProject.Instance.currentProject.Name);
+        private ProjectInfo projectInfo = StorageProjects.Instance.GetProjectInfoByProjectName(CurrentProject.Instance.currentProject.Name);
         public ChangingProjectWindow()
         {
             InitializeComponent();

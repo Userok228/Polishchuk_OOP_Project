@@ -1,0 +1,294 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\joraclasslibrary\\user\\storageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|solutionrelative:joraclasslibrary\\user\\storageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\windows\\changeuserswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\windows\\changeuserswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\windows\\invitingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\windows\\invitingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\windows\\taskinfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\windows\\taskinfowindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9A85770-A92D-4B8A-AB68-28B379D65B64}|Jora.Tests\\Jora.Tests.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora.tests\\usertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9A85770-A92D-4B8A-AB68-28B379D65B64}|Jora.Tests\\Jora.Tests.csproj|solutionrelative:jora.tests\\usertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\joraclasslibrary\\projectcomponents\\storageprojects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|solutionrelative:joraclasslibrary\\projectcomponents\\storageprojects.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\windows\\changecolumnwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\windows\\changecolumnwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\pages\\projectboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\pages\\projectboardpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\pages\\projectteampage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\pages\\projectteampage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\pages\\projectpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\windows\\changingprojectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\windows\\changingprojectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\pages\\projectselectionpage_allprojects.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\pages\\projectselectionpage_allprojects.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\pages\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9A85770-A92D-4B8A-AB68-28B379D65B64}|Jora.Tests\\Jora.Tests.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora.tests\\projecttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9A85770-A92D-4B8A-AB68-28B379D65B64}|Jora.Tests\\Jora.Tests.csproj|solutionrelative:jora.tests\\projecttest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\joraclasslibrary\\projectcomponents\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|solutionrelative:joraclasslibrary\\projectcomponents\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\joraclasslibrary\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56107F43-1939-45B3-9464-F487C66C2F4F}|JoraClassLibrary\\JoraClassLibrary.csproj|solutionrelative:joraclasslibrary\\user\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|c:\\users\\makro\\source\\repos2\\oop\\jora\\jora\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5985635A-037E-478E-A036-3CAD4AAF03F1}|Jora\\Jora.csproj|solutionrelative:jora\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 331,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LogInPage.xaml",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\LogInPage.xaml",
+              "RelativeDocumentMoniker": "Jora\\Pages\\LogInPage.xaml",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\LogInPage.xaml",
+              "RelativeToolTip": "Jora\\Pages\\LogInPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-10T05:20:19.971Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "StorageProjects.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\ProjectComponents\\StorageProjects.cs",
+              "RelativeDocumentMoniker": "JoraClassLibrary\\ProjectComponents\\StorageProjects.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\ProjectComponents\\StorageProjects.cs",
+              "RelativeToolTip": "JoraClassLibrary\\ProjectComponents\\StorageProjects.cs",
+              "ViewState": "AQIAABMBAAAAAAAAAAAlwCYBAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T08:33:36.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProjectTeamPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectTeamPage.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Pages\\ProjectTeamPage.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectTeamPage.xaml.cs",
+              "RelativeToolTip": "Jora\\Pages\\ProjectTeamPage.xaml.cs",
+              "ViewState": "AQIAAEkAAAAAAAAAAAAAAFsAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:33:15.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaskInfoWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\TaskInfoWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Windows\\TaskInfoWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\TaskInfoWindow.xaml.cs",
+              "RelativeToolTip": "Jora\\Windows\\TaskInfoWindow.xaml.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAAAF4AAACRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T17:47:25.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StorageUsers.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\User\\StorageUsers.cs",
+              "RelativeDocumentMoniker": "JoraClassLibrary\\User\\StorageUsers.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\User\\StorageUsers.cs",
+              "RelativeToolTip": "JoraClassLibrary\\User\\StorageUsers.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAAALcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T18:30:06.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChangeUsersWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangeUsersWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Windows\\ChangeUsersWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangeUsersWindow.xaml.cs",
+              "RelativeToolTip": "Jora\\Windows\\ChangeUsersWindow.xaml.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAAEAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T16:09:36.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProjectSelectionPage_AllProjects.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectSelectionPage_AllProjects.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Pages\\ProjectSelectionPage_AllProjects.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectSelectionPage_AllProjects.xaml.cs",
+              "RelativeToolTip": "Jora\\Pages\\ProjectSelectionPage_AllProjects.xaml.cs",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAAAHMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:08:27.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProjectPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectPage.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Pages\\ProjectPage.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectPage.xaml.cs",
+              "RelativeToolTip": "Jora\\Pages\\ProjectPage.xaml.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAAE8AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:23:04.317Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InvitingWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\InvitingWindow.xaml",
+              "RelativeDocumentMoniker": "Jora\\Windows\\InvitingWindow.xaml",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\InvitingWindow.xaml",
+              "RelativeToolTip": "Jora\\Windows\\InvitingWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-10T16:06:25.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\App.xaml",
+              "RelativeDocumentMoniker": "Jora\\App.xaml",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\App.xaml",
+              "RelativeToolTip": "Jora\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-10T16:06:47.789Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProjectBoardPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectBoardPage.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Pages\\ProjectBoardPage.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Pages\\ProjectBoardPage.xaml.cs",
+              "RelativeToolTip": "Jora\\Pages\\ProjectBoardPage.xaml.cs",
+              "ViewState": "AQIAAPkAAAAAAAAAAAAAAAcBAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:43:19.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserTest.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora.Tests\\UserTest.cs",
+              "RelativeDocumentMoniker": "Jora.Tests\\UserTest.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora.Tests\\UserTest.cs",
+              "RelativeToolTip": "Jora.Tests\\UserTest.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAA6wCoAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T18:27:01.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ChangingProjectWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangingProjectWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Windows\\ChangingProjectWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangingProjectWindow.xaml.cs",
+              "RelativeToolTip": "Jora\\Windows\\ChangingProjectWindow.xaml.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAAFAAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:19:25.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ChangeColumnWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangeColumnWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Jora\\Windows\\ChangeColumnWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora\\Windows\\ChangeColumnWindow.xaml.cs",
+              "RelativeToolTip": "Jora\\Windows\\ChangeColumnWindow.xaml.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAAADQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-10T12:52:58.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\ProjectComponents\\Project.cs",
+              "RelativeDocumentMoniker": "JoraClassLibrary\\ProjectComponents\\Project.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\ProjectComponents\\Project.cs",
+              "RelativeToolTip": "JoraClassLibrary\\ProjectComponents\\Project.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-07T08:57:26.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\User\\User.cs",
+              "RelativeDocumentMoniker": "JoraClassLibrary\\User\\User.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\JoraClassLibrary\\User\\User.cs",
+              "RelativeToolTip": "JoraClassLibrary\\User\\User.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAAC4AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T18:52:44.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProjectTest.cs",
+              "DocumentMoniker": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora.Tests\\ProjectTest.cs",
+              "RelativeDocumentMoniker": "Jora.Tests\\ProjectTest.cs",
+              "ToolTip": "C:\\Users\\makro\\source\\repos2\\OOP\\Jora\\Jora.Tests\\ProjectTest.cs",
+              "RelativeToolTip": "Jora.Tests\\ProjectTest.cs",
+              "ViewState": "AQIAAL8AAAAAAAAAAAAAAN4AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-05T18:25:31.798Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

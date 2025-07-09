@@ -27,7 +27,7 @@ namespace Jora
         private ProjectTask oldtask = new ProjectTask();
         private PriorityTaskEnum currentpriority;
         private PriorityTaskEnum firstpriority;
-        string oldname;
+        private string oldname;
         public TaskInfoWindow(ProjectTask initialTask)
         {
             InitializeComponent();
@@ -72,11 +72,12 @@ namespace Jora
                 Close();
             if(task.Name != txtbx_Name.Text)
             {
+                if(txtbx_Name.Text.Length>40||txtbx_Name.Text.Length==0)
                 MessageBox.Show("the length of the task name should not exceed 40 characters");
                 return;
             }
             task.Description = txtbx_Description.Text;
-            if (task.Description != txtbx_Description.Text)
+            if (task.Description != txtbx_Description.Text&& txtbx_Deadline.Text.Length > 2000)
             {
                 MessageBox.Show("the length of the task description should not exceed 2000 characters");
                 return;
@@ -91,7 +92,7 @@ namespace Jora
             else
             {
                 DateTime dead;
-                if (DateTime.TryParseExact(txtbx_Deadline.Text, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dead))
+                if (DateTime.TryParseExact(txtbx_Deadline.Text, "dd.MM.yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dead)&&dead>DateTime.Today)
                     task.Deadline = dead;
                 else
                 {
